@@ -1,32 +1,35 @@
 angular.module('bdeesiee.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function ($scope) {})
 
-.controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-  
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  }
-})
-
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
-
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
-})
-
-.controller('RoomsCtrl', function($scope, Rooms) {
-  $scope.rooms = Rooms.all();
+.controller('RoomsCtrl', function ($scope, Rooms, $ionicPopup) {
+	var roomCategory = function(room) {
+		if(isNaN(room))
+			return 0;
+		var roomNumber = parseInt(room);
+		if(roomNumber > 999 && roomNumber < 8000) {
+			return Math.ceil(roomNumber/1000)
+		} else {
+			return 0;
+		}
+	}
+	$scope.zones = [
+		{name:"Autres",rooms:[]},	
+		{name:"Épi 1",rooms:[]},
+		{name:"Épi 2",rooms:[]},
+		{name:"Épi 3",rooms:[]},
+		{name:"Épi 4",rooms:[]},
+		{name:"Épi 5",rooms:[]},
+		{name:"Épi 6",rooms:[]},
+		{name:"Épi 7",rooms:[]},
+	]
+	$scope.doRefresh = function(){
+		Rooms.all().then(function (data) {
+			console.log(data);
+			$scope.rooms = data.data;
+			$scope.$broadcast('scroll.refreshComplete');
+			$scope.firstLoad = false;
+		});
+	};
+	$scope.doRefresh();
 });

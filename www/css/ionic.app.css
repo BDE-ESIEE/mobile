@@ -7692,3 +7692,8 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+div.spinnercenter {
+  text-align: center;
+  padding-top: 14px;
+  padding-bottom: 14px; }

@@ -1,9 +1,26 @@
 <ion-view view-title="Rooms">
-  <ion-content>
-	<ion-list>
-	  <ion-item ng-repeat="room in rooms">
-		  {{room}} <i class="ion-checkmark-round"></i>
-	  </ion-item>
-	</ion-list>
-  </ion-content>
+	<ion-content>
+		<ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+		</ion-refresher>
+		<div class="spinnercenter" ng-if="firstLoad">
+			<ion-spinner></ion-spinner>
+		</div>
+		<div class="list card" ng-repeat="zone in zones">
+
+			<div class="item">
+				<h1>{{zone.name}}</h1>
+			</div>
+
+			<div class="item item-body">
+				<h3>Salles libres :</h3>
+				<p>
+					<span ng-repeat="room in zone.rooms">
+						{{room}} <span ng-if="!$last">, </span>
+					</span>
+				</p>
+			</div>
+
+
+		</div>
+	</ion-content>
 </ion-view>
