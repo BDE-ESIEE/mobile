@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('bdeesiee.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
@@ -25,4 +25,8 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
+})
+
+.controller('RoomsCtrl', function($scope, Rooms) {
+  $scope.rooms = Rooms.all();
 });

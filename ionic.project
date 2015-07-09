@@ -1,4 +1,12 @@
 {
   "name": "Zephyr",
-  "app_id": ""
+  "app_id": "42a730a2",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
 }
