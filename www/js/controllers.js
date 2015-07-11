@@ -3,11 +3,10 @@ angular.module('bdeesiee.controllers', [])
 .controller('DashCtrl', function ($scope) {})
 
 .controller('RoomsCtrl', function ($scope, Rooms, $ionicPopup) {
-
+	$scope.firstLoad = true;
 	$scope.doRefresh = function(){
-		Rooms.all().then(function (data) {
-			console.log(data);
-			$scope.rooms = data.data;
+		Rooms.zones().then(function (zones) {
+			$scope.zones = zones;
 			$scope.$broadcast('scroll.refreshComplete');
 			$scope.firstLoad = false;
 		});
