@@ -12,7 +12,7 @@ angular.module('bdeesiee.services', [])
 		}
 	};
 	var getZones = function () {
-		var zonesPromise = $http.get('http://192.168.0.30:8080/api/rooms').
+		var zonesPromise = $http.get('https://bde.esiee.fr/api/calendar/rooms').
 		then(function (response) {
 			var list = response.data;
 			var zones = [
@@ -33,7 +33,7 @@ angular.module('bdeesiee.services', [])
 		return zonesPromise;
 	}
 	var getRooms = function () {
-		var roomsPromise = $http.get('https://bde.esiee.fr/api/rooms').
+		var roomsPromise = $http.get('https://bde.esiee.fr/api/calendar/rooms').
 		then(function (response) {
 			return response.data;
 		});
