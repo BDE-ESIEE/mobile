@@ -1,0 +1,34 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+/* Colors from https://dribbble.com/shots/1530037-Nebular-Graph/attachments/232087 */
+$blue: #6CBDEC;
+$purple: #9991CD;
+
+$gray: #666666;
+$white: #FFFFFF;
+
+$positive: $purple;
+$calm: $blue;
+$energized: rgba(255, 255, 255, 0);
+
+$button-energized-bg:             $energized;
+$button-energized-text:           $white;
+$button-energized-border:         $energized;
+$button-energized-active-bg:      $energized;
+$button-energized-active-border:  $energized;
+
+$bar-energized-bg: $button-energized-bg;

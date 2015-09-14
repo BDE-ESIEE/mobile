@@ -12,4 +12,22 @@ angular.module('bdeesiee.controllers', [])
 		});
 	};
 	$scope.doRefresh();
+})
+
+.controller('ClubsCtrl', function ($scope) {
+	
+})
+
+.controller('NotificationsCtrl', function ($scope) {
+	
+})
+
+.controller('SigninCtrl', function ($scope) {
+	$scope.googleLogin = function() {
+        $cordovaOauth.google("789428888971-m22q0lj7isafsqhmj3l7ag4uv56kg7b6.apps.googleusercontent.com", ["email","profile"]).then(function(result) {
+            console.log(result)
+        }, function(error) {
+            console.log(error)
+        });
+    }
 });

@@ -38,15 +38,11 @@ angular.module('bdeesiee', ['ionic', 'bdeesiee.controllers', 'bdeesiee.services'
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
-      }
-    }
-  })
+  .state('signin', {
+      url: '/signin',
+      templateUrl: 'templates/signin.html',
+      controller: 'SigninCtrl'
+    })
 
   .state('tab.rooms', {
     url: '/rooms',
@@ -56,9 +52,29 @@ angular.module('bdeesiee', ['ionic', 'bdeesiee.controllers', 'bdeesiee.services'
         controller: 'RoomsCtrl'
       }
     }
+  })
+  
+  .state('tab.clubs', {
+    url: '/clubs',
+    views: {
+      'tab-clubs': {
+        templateUrl: 'templates/tab-clubs.html',
+        controller: 'ClubsCtrl'
+      }
+    }
+  })
+  
+  .state('tab.notifications', {
+    url: '/notifications',
+    views: {
+      'tab-notifications': {
+        templateUrl: 'templates/tab-notifications.html',
+        controller: 'NotificationsCtrl'
+      }
+    }
   });	
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/signin');
 
 });
