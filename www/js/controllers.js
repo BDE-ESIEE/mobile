@@ -25,6 +25,8 @@ angular.module('bdeesiee.controllers', [])
 		});
 	};
 	$scope.doRefresh();
+	
+	$scope.idbidule = "";
 })
 
 .controller('NotificationsCtrl', function ($scope) {
