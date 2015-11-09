@@ -1,4 +1,12 @@
-<ion-view view-title="Clubs">
-  <ion-content class="padding">
-  </ion-content>
+<ion-view view-title="Mes Clubs">
+	<ion-content>
+		<ion-refresher pulling-text="Tirez pour actualiser..." on-refresh="doRefresh()">
+		</ion-refresher>
+		<div class="spinnercenter" ng-if="firstLoad">
+			<ion-spinner></ion-spinner>
+		</div>
+		<ion-list>
+			<ion-checkbox ng-model="isChecked" ng-repeat="club in clubs">{{club.name}}</ion-checkbox>
+		</ion-list>
+	</ion-content>
 </ion-view>

@@ -75,6 +75,6 @@ angular.module('bdeesiee', ['ionic', 'bdeesiee.controllers', 'bdeesiee.services'
   });	
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/signin');
+  $urlRouterProvider.otherwise('/tab/notifications');
 
 });

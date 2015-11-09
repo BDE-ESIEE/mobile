@@ -4,18 +4,20 @@ Each tab's child <ion-nav-view> directive will have its own
 navigation history that also transitions its views in and out.
 -->
 <ion-tabs class=" tabs-color-light tabs-background-royal tabs-icon-top">
-  <!-- Chats Tab -->
-  <ion-tab title="Salles Libres" icon-off="ion-ios-location-outline" icon-on="ion-ios-location" href="#/tab/rooms">
-    <ion-nav-view name="tab-rooms"></ion-nav-view>
-  </ion-tab>
-  
-  <!--Clubs Tab-->
-  <ion-tab title="Clubs" icon-off="ion-ios-people-outline" icon-on="ion-ios-people" href="#/tab/clubs">
-    <ion-nav-view name="tab-clubs"></ion-nav-view>
-  </ion-tab>
-  
-  <!--Notifications Tab-->
-  <ion-tab title="Notifications" badge="3" icon-off="ion-ios-bell-outline" icon-on="ion-ios-bell" href="#/tab/notifications">
-    <ion-nav-view name="tab-notifications"></ion-nav-view>
-  </ion-tab>  
+
+	<!--Notifications Tab-->
+	<ion-tab title="Notifications" badge="3" icon-off="ion-ios-bell-outline" icon-on="ion-ios-bell" href="#/tab/notifications">
+		<ion-nav-view name="tab-notifications"></ion-nav-view>
+	</ion-tab>
+	
+	<!--Clubs Tab-->
+	<ion-tab title="Mes Clubs" icon-off="ion-ios-people-outline" icon-on="ion-ios-people" href="#/tab/clubs">
+		<ion-nav-view name="tab-clubs"></ion-nav-view>
+	</ion-tab>
+		
+	<!-- Rooms Tab -->
+	<ion-tab title="Salles Libres" icon-off="ion-ios-location-outline" icon-on="ion-ios-location" href="#/tab/rooms">
+		<ion-nav-view name="tab-rooms"></ion-nav-view>
+	</ion-tab>
+
 </ion-tabs>

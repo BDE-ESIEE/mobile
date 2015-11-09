@@ -43,4 +43,34 @@ angular.module('bdeesiee.services', [])
 		zones: getZones,
 		rooms: getRooms
 	};
+}])
+
+.factory('Clubs', ['$http', '$log', function ($http, $log) {
+	var parseHeaders = {
+		"X-Parse-Application-Id" : "ksj5r9KsYUFdbQBaDmzNqKttJ7I53epYYcUg4mLq",
+		"X-Parse-REST-API-Key" : "E6gifA5rIbR5CSvDdCtICQy1fkKTqxbiiIfqwGKu"
+	}
+	var getStudentId = function() {
+		if(_.isString(window.localStorage['studentId'])) {
+			return window.localStorage['studentId'];
+		} else {
+			$http.get('https://api.parse.com/1/classes/Club');
+		}
+	}
+	
+	var getClubs = function () {
+		var clubsPromise = $http.get('https://api.parse.com/1/classes/Club', {headers:parseHeaders})
+		.then(function(response){
+			$log.debug(response.data.results);
+			return response.data.results;
+		}, function(error){
+			error(error);
+		});
+		return clubsPromise;
+	}
+	
+	
+	return {
+		clubs: getClubs
+	};
 }]);
