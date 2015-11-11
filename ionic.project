@@ -1,6 +1,6 @@
 {
   "name": "Zephyr",
-  "app_id": "42a730a2",
+  "app_id": "",
   "gulpStartupTasks": [
     "sass",
     "watch"
