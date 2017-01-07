@@ -19,10 +19,16 @@ class NewsCard extends Component {
   }
 
   componentDidMount () {
-    this.getNews();
+    if (this.props.newsId) {
+      this.fetchNews();
+    } else if (this.props.news) {
+      this.setState({
+        loading: false
+      });
+    }
   }
 
-  getNews () {
+  fetchNews () {
     fetch(`https://bde.esiee.fr/api/posts/${this.props.newsId}.json`, {
       method: 'GET',
       headers: {
@@ -46,17 +52,27 @@ class NewsCard extends Component {
       );
     }
 
+    let news = (this.props.news ? this.props.news : this.state.news);
+
+    let image;
+
+    if (news.photo.url_thumbnail) {
+      image = (
+        <Card.Media
+          image={<Image source={{uri: news.photo.url_thumbnail}} />}
+          overlay
+        />
+      );
+    }
+
     return (
       <View >
         <Card>
-          <Card.Media
-            image={<Image source={{uri: this.state.news.photo.url_thumbnail}} />}
-            overlay
-          />
+          {image}
           <Card.Body>
-            <Text style={{fontWeight: 'bold', color: '#000'}}>{this.state.news.title}</Text>
+            <Text style={{fontWeight: 'bold', color: '#000'}}>{news.title}</Text>
             <HTMLView
-              value={this.state.news.content}
+              value={news.content}
             />
           </Card.Body>
         </Card>
