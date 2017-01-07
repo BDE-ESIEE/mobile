@@ -1,12 +1,12 @@
 'use strict';
 
-import React, { Component } from 'react';
+import React from 'react';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import EventsList from './events/EventsList';
 import AnnalesHome from './annales/AnnalesHome';
 
-class TopNavigation extends React.Component{
-  render() {
+class TopNavigation extends React.Component {
+  render () {
     return (
       <ScrollableTabView
         tabBarUnderlineColor='#fff'
@@ -14,8 +14,8 @@ class TopNavigation extends React.Component{
         tabBarActiveTextColor='#fff'
         tabBarInactiveTextColor='#fff'
       >
-        <EventsList tabLabel="Evenements"/>
-        <AnnalesHome tabLabel="Annales"/>
+        <EventsList tabLabel='Evenements' />
+        <AnnalesHome tabLabel='Annales' />
       </ScrollableTabView>
     );
   }

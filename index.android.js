@@ -6,18 +6,15 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+  AppRegistry
 } from 'react-native';
 
-import TopNavigation from './components/TopNavigation';
+import AppRouter from './components/AppRouter';
 
 class Lagoon extends Component {
-  render() {
+  render () {
     return (
-      <TopNavigation />
+      <AppRouter />
     );
   }
 }
