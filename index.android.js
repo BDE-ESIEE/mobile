@@ -9,12 +9,12 @@ import {
   AppRegistry
 } from 'react-native';
 
-import AppRouter from './components/AppRouter';
+import App from './components/App';
 
 class Lagoon extends Component {
   render () {
     return (
-      <AppRouter />
+      <App />
     );
   }
 }
