@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import {
   Text,
   View,
+  ScrollView,
   Image
 } from 'react-native';
 import HTMLView from 'react-native-htmlview';
-
 import { Card } from 'react-native-material-design';
+import styles from '../styles/news.js';
 
 /* global fetch */
 class NewsCard extends Component {
@@ -66,17 +67,19 @@ class NewsCard extends Component {
     }
 
     return (
-      <View >
-        <Card>
-          {image}
-          <Card.Body>
-            <Text style={{fontWeight: 'bold', color: '#000'}}>{news.title}</Text>
-            <HTMLView
-              value={news.content}
-            />
-          </Card.Body>
-        </Card>
-      </View>
+      <ScrollView style={styles.container}>
+        <View>
+          <Card>
+            {image}
+            <Card.Body>
+              <Text style={{fontWeight: 'bold', color: '#000'}}>{news.title}</Text>
+              <HTMLView
+                value={news.content}
+              />
+            </Card.Body>
+          </Card>
+        </View>
+      </ScrollView>
     );
   }
 }
