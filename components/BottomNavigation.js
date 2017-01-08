@@ -17,7 +17,7 @@ class BottomNavigation extends React.Component {
         {
           props.navigationState.children.map(el => {
             return (
-              <DefaultRenderer navigationState={el} onNavigate={props.onNavigate} key={el.key} {...el} tabLabel={el.title} tabIcon='calendar' />
+              <DefaultRenderer navigationState={el} onNavigate={props.onNavigate} key={el.key} {...el} tabLabel={el.title} />
             );
           })
         }
