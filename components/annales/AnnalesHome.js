@@ -3,11 +3,13 @@ import {
   Text,
   View
 } from 'react-native';
+import {GoogleSigninButton} from 'react-native-google-signin';
+import Auth from '../../libs/auth';
 
-import styles from '../styles/events.js'
+import styles from '../styles/events.js';
 
 class AnnalesHome extends Component {
-  render() {
+  render () {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -20,6 +22,11 @@ class AnnalesHome extends Component {
           Double tap R on your keyboard to reload,{'\n'}
           Shake or press menu button for dev menu
         </Text>
+        <GoogleSigninButton
+          style={{width: 48, height: 48}}
+          size={GoogleSigninButton.Size.Icon}
+          color={GoogleSigninButton.Color.Dark}
+          onPress={Auth.signIn} />
       </View>
     );
   }

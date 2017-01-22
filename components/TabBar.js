@@ -19,14 +19,16 @@ class TabBar extends React.Component {
     return (
       <View style={styles.tabs}>
         {this.props.tabs.map((tab, i) => {
-          return <TouchableOpacity key={tab} onPress={() => this.props.goToPage(i)} style={styles.tab}>
-            <Icon
-              name={tabToIconName[tab]}
-              size={this.props.activeTab === i ? 28 : 20}
-              style={styles.icon}
-            />
-            <Text style={styles.tabName}>{tab}</Text>
-          </TouchableOpacity>;
+          return (
+            <TouchableOpacity key={tab} onPress={() => this.props.goToPage(i)} style={styles.tab}>
+              <Icon
+                name={tabToIconName[tab]}
+                size={this.props.activeTab === i ? 28 : 20}
+                style={styles.icon}
+              />
+              <Text style={styles.tabName}>{tab}</Text>
+            </TouchableOpacity>
+          );
         })}
       </View>
     );

@@ -6,6 +6,7 @@ import BottomNavigation from './BottomNavigation';
 import NewsCard from './news/NewsCard';
 import EventsList from './events/EventsList';
 import AnnalesHome from './annales/AnnalesHome';
+import Auth from '../libs/auth';
 
 const scenes = Actions.create(
   <Scene key='root'>
@@ -22,6 +23,10 @@ class App extends React.Component {
     return (
       <Router scenes={scenes} />
     );
+  }
+
+  componentDidMount () {
+    Auth.configure();
   }
 }
 
