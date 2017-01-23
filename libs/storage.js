@@ -35,6 +35,14 @@ class Storage {
       });
     });
   }
+
+  /**
+   * Clear whole storage - For debug purposes
+   * @author Naji Astier
+   */
+  static clear () {
+    AsyncStorage.clear();
+  }
 }
 
 module.exports = Storage;

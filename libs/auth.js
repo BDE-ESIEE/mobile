@@ -15,6 +15,7 @@ class Auth {
     this.getUser = this.getUser.bind(this);
     this.annalesSignIn = this.annalesSignIn.bind(this);
     this.annalesRefresh = this.annalesRefresh.bind(this);
+    this.annalesOauth2 = this.annalesOauth2.bind(this);
   }
 
   /**
@@ -81,36 +82,46 @@ class Auth {
   }
 
   /**
+   * Common request method for annalesSignIn and annalesRefresh
+   */
+  annalesOauth2 (body) {
+    let self = this;
+
+    fetch('https://bde.esiee.fr/annales/oauth/v2/token/google', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        'client_id': annalesClientId,
+        'client_secret': annalesSecret,
+        ...body
+      })
+    })
+    .then((response) => response.json())
+    .then((responseJson) => {
+      self.user.annales_tokens = responseJson;
+      self.user.annales_tokens.expires = moment().add(responseJson.expires_in, 'seconds').toDate();
+      Storage.set('user', self.user);
+    })
+    .catch((error) => {
+      console.error(error);
+    })
+    ;
+  }
+
+  /**
    * Sign into annales service
    */
   annalesSignIn () {
     if (!this.user || !this.user.accessToken || !this.user.id || !this.user.accessToken) {
       console.log('cannot log into annales service');
     } else {
-      let self = this;
-      fetch('https://bde.esiee.fr/annales/oauth/v2/token/google', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          'grant_type': 'social_access_token',
-          'client_id': annalesClientId,
-          'client_secret': annalesSecret,
-          'social_id': this.user.id,
-          'social_token': this.user.accessToken
-        })
-      })
-      .then((response) => response.json())
-      .then((responseJson) => {
-        self.user.annales_tokens = responseJson;
-        self.user.annales_tokens.expires = moment().add(responseJson.expires_in, 'seconds').toDate();
-        Storage.set('user', self.user);
-      })
-      .catch((error) => {
-        console.error(error);
-      })
-      ;
+      this.annalesOauth2({
+        'grant_type': 'social_access_token',
+        'social_id': this.user.id,
+        'social_token': this.user.accessToken
+      });
     }
   }
 
@@ -121,29 +132,10 @@ class Auth {
     if (!this.user || !this.user.annales_tokens || !this.user.annales_tokens.refresh_token) {
       console.log('cannot refresh annales tokens');
     } else {
-      let self = this;
-      fetch('https://bde.esiee.fr/annales/oauth/v2/token/google', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          'grant_type': 'refresh_token',
-          'client_id': annalesClientId,
-          'client_secret': annalesSecret,
-          'refresh_token': this.user.annales_tokens.refresh_token
-        })
-      })
-      .then((response) => response.json())
-      .then((responseJson) => {
-        self.user.annales_tokens = responseJson;
-        self.user.annales_tokens.expires = moment().add(responseJson.expires_in, 'seconds').toDate();
-        Storage.set('user', self.user);
-      })
-      .catch((error) => {
-        console.error(error);
-      })
-      ;
+      this.annalesOauth2({
+        'grant_type': 'refresh_token',
+        'refresh_token': this.user.annales_tokens.refresh_token
+      });
     }
   }
 }
