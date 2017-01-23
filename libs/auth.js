@@ -16,6 +16,13 @@ class Auth {
     this.annalesSignIn = this.annalesSignIn.bind(this);
     this.annalesRefresh = this.annalesRefresh.bind(this);
     this.annalesOauth2 = this.annalesOauth2.bind(this);
+
+    let self = this;
+    Storage.get('user').then((user) => {
+      if (user) {
+        self.user = user;
+      }
+    });
   }
 
   /**
@@ -56,29 +63,30 @@ class Auth {
    * Log into Google + Annales service
    */
   signIn () {
-    var self = this;
-    Storage.get('user').then((user) => {
-      if (!user) {
-        // User does not exist
-        GoogleSignin.signIn()
-        .then(function (user) {
-          console.log('signIn', JSON.stringify(user));
-          self.user = user;
-          Storage.set('user', user);
-          self.annalesSignIn();
-        })
-        .catch((err) => {
-          console.log('WRONG SIGNIN', err);
-        })
-        .done();
-      } else {
+    if (!this.user) {
+      let self = this;
+      // User does not exist
+      GoogleSignin.signIn()
+      .then(function (user) {
+        console.log('signIn', JSON.stringify(user));
         self.user = user;
-        console.log('storage', JSON.stringify(self.user));
-        if (!self.user.annales_tokens) {
-          self.annalesSignIn();
+        Storage.set('user', user);
+        self.annalesSignIn();
+      })
+      .catch((err) => {
+        console.log('WRONG SIGNIN', err);
+      })
+      .done();
+    } else {
+      console.log('storage', JSON.stringify(this.user));
+      if (!this.user.annales_tokens) {
+        this.annalesSignIn();
+      } else {
+        if (new Date() > new Date(this.user.annales_tokens.expires)) {
+          this.annalesRefresh();
         }
       }
-    });
+    }
   }
 
   /**
