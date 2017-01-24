@@ -10,12 +10,17 @@ const annalesSecret = '25yyrbggzi9wg0wgskgc004wko8w0k0oowcg8kcsckgog80wkw';
 class Auth {
   constructor () {
     this.user = {};
+    this.callbacks = {
+      auth: []
+    };
 
     this.signIn = this.signIn.bind(this);
     this.getUser = this.getUser.bind(this);
     this.annalesSignIn = this.annalesSignIn.bind(this);
     this.annalesRefresh = this.annalesRefresh.bind(this);
     this.annalesOauth2 = this.annalesOauth2.bind(this);
+    this.signOut = this.signOut.bind(this);
+    this.onAuth = this.onAuth.bind(this);
 
     let self = this;
     Storage.get('user').then((user) => {
@@ -52,10 +57,6 @@ class Auth {
    * @return {user} User object
    */
   getUser () {
-    if (!this.user) {
-      this.user = GoogleSignin.currentUser();
-    }
-
     return this.user;
   }
 
@@ -63,8 +64,8 @@ class Auth {
    * Log into Google + Annales service
    */
   signIn () {
+    let self = this;
     if (!this.user) {
-      let self = this;
       // User does not exist
       GoogleSignin.signIn()
       .then(function (user) {
@@ -83,10 +84,36 @@ class Auth {
         this.annalesSignIn();
       } else {
         if (new Date() > new Date(this.user.annales_tokens.expires)) {
+          // Refresh du token
+          console.log('annales token refresh');
           this.annalesRefresh();
+        } else {
+          this.callbacks['auth'].forEach((callback) => {
+            callback(self.user);
+          });
         }
       }
     }
+  }
+
+  /**
+   * Sign out from the app
+   */
+  signOut () {
+    let self = this;
+    GoogleSignin.signOut()
+    .then(() => {
+      console.log('out');
+      self.user = null;
+      Storage.set('user', null);
+
+      self.callbacks['auth'].forEach((callback) => {
+        callback(null);
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   }
 
   /**
@@ -111,6 +138,9 @@ class Auth {
       self.user.annales_tokens = responseJson;
       self.user.annales_tokens.expires = moment().add(responseJson.expires_in, 'seconds').toDate();
       Storage.set('user', self.user);
+      this.callbacks['auth'].forEach((callback) => {
+        callback(self.user);
+      });
     })
     .catch((error) => {
       console.error(error);
@@ -144,6 +174,18 @@ class Auth {
         'grant_type': 'refresh_token',
         'refresh_token': this.user.annales_tokens.refresh_token
       });
+    }
+  }
+
+  /**
+   * Add an onAuth callback
+   */
+  onAuth (callback) {
+    if (typeof callback === 'function') {
+      this.callbacks['auth'].push(callback);
+      if (this.user) {
+        callback(this.user);
+      }
     }
   }
 }

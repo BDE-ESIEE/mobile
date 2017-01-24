@@ -6,6 +6,7 @@ import BottomNavigation from './BottomNavigation';
 import NewsCard from './news/NewsCard';
 import EventsList from './events/EventsList';
 import AnnalesHome from './annales/AnnalesHome';
+import LoginPage from './LoginPage';
 import Auth from '../libs/auth';
 // import Storage from '../libs/storage';
 
@@ -14,6 +15,7 @@ const scenes = Actions.create(
     <Scene key='home' component={BottomNavigation} initial tabs hideNavBar>
       <Scene key='events' component={EventsList} title='Événements' hideNavBar />
       <Scene key='annales' component={AnnalesHome} title='Annales' hideNavBar />
+      <Scene key='login' component={LoginPage} title='Mon compte' hideNavBar />
     </Scene>
     <Scene key='news' component={NewsCard} title='News' hideNavBar={false} />
   </Scene>
