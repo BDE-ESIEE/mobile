@@ -12,7 +12,7 @@ import Auth from '../libs/auth';
 
 const scenes = Actions.create(
   <Scene key='root'>
-    <Scene key='home' component={BottomNavigation} initial tabs hideNavBar>
+    <Scene key='home' component={BottomNavigation} initial tabs hideNavBar unmountScenes>
       <Scene key='events' component={EventsList} title='Événements' hideNavBar />
       <Scene key='annales' component={AnnalesHome} title='Annales' hideNavBar />
       <Scene key='login' component={LoginPage} title='Mon compte' hideNavBar />

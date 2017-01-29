@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text,
-  Button
+  Text
 } from 'react-native';
 import { GoogleSigninButton } from 'react-native-google-signin';
-import Auth from '../libs/auth';
+import { Button } from 'react-native-material-design';
 
+import Auth from '../libs/auth';
 import styles from './styles/login.js';
 
 class LoginPage extends Component {
@@ -14,20 +14,29 @@ class LoginPage extends Component {
     super();
 
     this.state = {
-      isLoggedIn: false
+      isLoggedIn: false,
+      authCallbackIndex: null
     };
   }
 
   componentDidMount () {
     let self = this;
 
-    Auth.onAuth((user) => {
+    let index = Auth.onAuth((user) => {
       if (user) {
         self.setState({isLoggedIn: true});
       } else {
         self.setState({isLoggedIn: false});
       }
     });
+
+    this.setState({
+      authCallbackIndex: index
+    });
+  }
+
+  componentWillUnmount () {
+    Auth.removeCallback('auth', this.state.index);
   }
 
   render () {
@@ -38,10 +47,11 @@ class LoginPage extends Component {
       text = Auth.getUser().name;
       button = (
         // Button logout sa mère
-        // <Button
-        //   title='Se déconnecter'
-        //   onPress={Auth.signOut} />
-        <Text>Nique sa mère le maire</Text>
+        <Button
+          value='Se déconnecter'
+          text='Se déconnecter'
+          raised
+          onPress={Auth.signOut} />
       );
     } else {
       button = (

@@ -9,7 +9,7 @@ const annalesSecret = '25yyrbggzi9wg0wgskgc004wko8w0k0oowcg8kcsckgog80wkw';
 /* global fetch */
 class Auth {
   constructor () {
-    this.user = {};
+    this.user = null;
     this.callbacks = {
       auth: []
     };
@@ -21,6 +21,7 @@ class Auth {
     this.annalesOauth2 = this.annalesOauth2.bind(this);
     this.signOut = this.signOut.bind(this);
     this.onAuth = this.onAuth.bind(this);
+    this.removeCallback = this.removeCallback.bind(this);
 
     let self = this;
     Storage.get('user').then((user) => {
@@ -45,7 +46,7 @@ class Auth {
       })
       .then(() => {
         // you can now call currentUserAsync()
-        self.getUser();
+        self.signIn(false);
       });
     })
     .catch((err) => {
@@ -63,9 +64,9 @@ class Auth {
   /**
    * Log into Google + Annales service
    */
-  signIn () {
+  signIn (login = true) {
     let self = this;
-    if (!this.user) {
+    if (!this.user && login) {
       // User does not exist
       GoogleSignin.signIn()
       .then(function (user) {
@@ -186,6 +187,18 @@ class Auth {
       if (this.user) {
         callback(this.user);
       }
+
+      return this.callbacks['auth'].length - 1;
+    }
+  }
+
+  /**
+   * Remove a callback to prevent memory leaks
+   */
+  removeCallback (type, index) {
+    console.log(this.callbacks[type][index]);
+    if (this.callbacks[type][index]) {
+      this.callbacks[type][index] = null;
     }
   }
 }
