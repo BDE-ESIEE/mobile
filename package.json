@@ -11,6 +11,7 @@
     "react-native": "^0.29.2",
     "react-native-google-signin": "^0.7.2",
     "react-native-htmlview": "^0.5.0",
+    "react-native-linear-gradient": "^2.0.0",
     "react-native-material-design": "^0.3.7",
     "react-native-router-flux": "^3.37.0",
     "react-native-scrollable-tab-view": "^0.7.0",

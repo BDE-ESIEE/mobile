@@ -6,18 +6,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'stretch',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  eventCardDateSmall: {
+    width: 70,
+    textAlign:"center"
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  eventCardDateNumber: {
+    width: 70,
+    textAlign:"center",
+    fontSize:30,
+    marginTop:-7,
+    marginBottom:-7
+  }
+
 });
 
 module.exports = styles;

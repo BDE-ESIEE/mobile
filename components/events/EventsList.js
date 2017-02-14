@@ -4,6 +4,7 @@ import {
   View,
   ListView
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 import styles from '../styles/events.js';
 import EventCard from './EventCard';
@@ -23,9 +24,30 @@ class EventsList extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <View>
+          <LinearGradient
+            start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
+            colors={['#FE734C', '#FF4D59']}
+            style={{
+              height:100,
+              flexDirection: "column",
+              justifyContent:"center",
+              alignItems:"center"
+            }}>
+            <Text
+              style={{
+                color:"#ffffff",
+                fontSize:40,
+                fontWeight:"100",
+                fontFamily:"ProximaNova-Bold"
+              }}
+              >1</Text>
+            <Text style={{color:"#ffffff",fontSize:16,fontWeight:"400",fontFamily:"ProximaNova-Regular"}}>Évènement cette semaine</Text>
+          </LinearGradient>
+        </View>
         <ListView
           dataSource={this.state.events}
-          renderRow={(event) => <EventCard event={event}></EventCard>}
+          renderRow={(event,sectionID,rowID) => <EventCard event={event} row={rowID}></EventCard>}
           />
       </View>
     );

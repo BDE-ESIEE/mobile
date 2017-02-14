@@ -41,7 +41,11 @@ class Auth {
       GoogleSignin.configure({
         // scopes: [], // what API you want to access on behalf of the user, default is email and profile
         // iosClientId: '<FROM DEVELOPPER CONSOLE>', // only for iOS
-        webClientId: '557464199167-4lbgvd3o6c6qjtqitqf1h8vkl9017csl.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
+        // client ID of type WEB for your server (needed to verify user ID and offline access)
+        // Maxence :
+        webClientId: '582515175129-tjavfgnaejmfddtehv6g435emn3jf576.apps.googleusercontent.com',
+        // Naji :
+        // webClientId: '557464199167-4lbgvd3o6c6qjtqitqf1h8vkl9017csl.apps.googleusercontent.com',
         offlineAccess: true // if you want to access Google API on behalf of the user FROM YOUR SERVER
       })
       .then(() => {

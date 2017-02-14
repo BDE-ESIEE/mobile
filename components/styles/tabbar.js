@@ -4,26 +4,19 @@ import {
 
 const styles = StyleSheet.create({
   tabs: {
-    height: 45,
+    height: 55,
     flexDirection: 'row',
-    backgroundColor: '#ef476f',
-    borderWidth: 1,
-    borderTopWidth: 0,
+    backgroundColor: '#f2f2f2',
+    borderTopWidth: 1,
     borderLeftWidth: 0,
     borderRightWidth: 0,
-    borderBottomColor: 'rgba(0,0,0,0.05)'
+    borderColor: '#d9d9d9',
+    padding:5
   },
   tab: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
-  },
-  icon: {
-    color: '#fff'
-  },
-  tabName: {
-    fontSize: 10,
-    color: '#fff'
   }
 });
 
