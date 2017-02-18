@@ -3,8 +3,13 @@ import {
   Text,
   View,
   TextInput,
-  ListView
+  ListView,
+  LayoutAnimation,
+  KeyboardAvoidingView
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 
 import AnnalesApi from '../../libs/api/annales';
 import Auth from '../../libs/auth';
@@ -20,13 +25,17 @@ class AnnalesHome extends Component {
       annales: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2
       }),
-      authCallbackIndex: null
+      authCallbackIndex: null,
+      searchHeight:1,
+      listHeight:0,
+      listMaxHeight:0
     };
 
     this.search = this.search.bind(this);
   }
 
   componentDidMount () {
+
     let self = this;
 
     let index = Auth.onAuth((user) => {
@@ -55,6 +64,15 @@ class AnnalesHome extends Component {
       self.setState({
         annales: this.state.annales.cloneWithRows(response.documents)
       });
+      // Animating Heights
+      setTimeout(()=>{
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
+        this.setState({
+          searchHeight:0,
+          listHeight:1,
+          listMaxHeight:-1
+        })
+      },1000)
     }).catch((error) => {
       console.log(error);
     });
@@ -66,16 +84,35 @@ class AnnalesHome extends Component {
     if (this.state.isLoggedIn) {
       components = (
         <View style={styles.annales}>
-          <View style={styles.inputContainer}>
-            <TextInput
-              onSubmitEditing={this.search}
-              returnKeyType='search'
-              style={styles.input}
-            />
+          <KeyboardAvoidingView behavior="padding" // Special animatable View
+          style={{flexDirection:"column", flex:this.state.searchHeight}}>
+          <LinearGradient
+            start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
+            colors={['#FE734C', '#FF4D59']}
+            style={styles.searchBg}>
+            <View style={styles.inputContainer}>
+              <Icon
+                name="ios-search"
+                size={21}
+                style={styles.inputIcon}
+              />
+              <TextInput
+                onSubmitEditing={this.search}
+                returnKeyType='search'
+                style={styles.input}
+                underlineColorAndroid="transparent"
+                placeholder="Cherchez une annale"
+              />
           </View>
+
+          </LinearGradient>
+        </KeyboardAvoidingView>
+
+
           <ListView
             dataSource={this.state.annales}
-            renderRow={(annale) => <AnnaleCard annale={annale} />}
+            style={{flex:this.state.listHeight,maxHeight:this.state.listMaxHeight}}
+            renderRow={(annale) => <AnnaleCard annale={annale} style={{opacity:1}} />}
           />
         </View>
       );

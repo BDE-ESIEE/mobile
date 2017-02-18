@@ -25,7 +25,7 @@ class TabBar extends React.Component {
                 size={23}
                 color={color}
               />
-            <Text style={{fontSize: 11,color:color}}>{tab}</Text>
+            <Text style={{fontSize: 11.5,color:color,fontFamily:"ProximaNova-Bold"}}>{tab}</Text>
             </TouchableOpacity>
           );
         })}

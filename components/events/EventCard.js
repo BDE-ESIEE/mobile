@@ -32,6 +32,7 @@ class EventCard extends Component {
     } else {
       squareColor = "#d81e5b";
     }
+    squareColor = "transparent";
     if (this.props.event.news_ids && this.props.event.news_ids.length > 0) {
       let goToNews = () => Actions.news({newsId: this.props.event.news_ids[0]});
       action = (
@@ -54,14 +55,16 @@ class EventCard extends Component {
           </Card.Body>
           {action}
         </Card>*/}
-        <View style={{flex: 1, flexDirection: 'row', justifyContent:"flex-start"}}>
-          <View style={{flexDirection: 'column', justifyContent:"center" , height: 70, backgroundColor: squareColor}}>
+        <View style={styles.eventCard}>
+          <View style={{flexDirection: 'column', justifyContent:"center" , height: 80, backgroundColor: squareColor}}>
             <Text style={styles.eventCardDateSmall}>{start.format("dddd")}</Text>
             <Text style={styles.eventCardDateNumber}>{start.date()}</Text>
             <Text style={styles.eventCardDateSmall}>{start.format("MMMM")}</Text>
           </View>
-          <View style={{height: 50, flex: 1, flexDirection: 'row', alignItems:'center', overflow:"hidden"}}>
-              <Text>{this.props.event.title}</Text>
+          <View style={{height: 70, flex: 1, overflow:"hidden", paddingTop: 10}}>
+              <Text style={styles.EventCardTitle}>{this.props.event.title}</Text>
+              <Text style={styles.EventCardDetail}>{entireDateString}</Text>
+              <Text style={styles.EventCardDetail}>{this.props.event.place}</Text>
           </View>
           <View style={{flexDirection: 'row', alignItems:'center', paddingRight:10}}>
               <Text>+</Text>

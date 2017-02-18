@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import {UIManager} from 'react-native';
 import {Actions, Scene, Router} from 'react-native-router-flux';
 import BottomNavigation from './BottomNavigation';
 import NewsCard from './news/NewsCard';
@@ -29,6 +30,7 @@ class App extends React.Component {
   }
 
   componentDidMount () {
+    UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
     Auth.configure();
     // Storage.clear();
   }
