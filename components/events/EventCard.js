@@ -44,17 +44,6 @@ class EventCard extends Component {
 
     return (
       <View >
-        {/*<Card>*/}
-          {/* <Card.Media
-              image={<Image source={{uri:item.image}} />}
-              overlay
-          /> */}
-          {/*<Card.Body>
-            <Text style={{fontWeight: 'bold', color: '#000'}}>{this.props.event.title}</Text>
-            <Text>{entireDateString}</Text>
-          </Card.Body>
-          {action}
-        </Card>*/}
         <View style={styles.eventCard}>
           <View style={{flexDirection: 'column', justifyContent:"center" , height: 80, backgroundColor: squareColor}}>
             <Text style={styles.eventCardDateSmall}>{start.format("dddd")}</Text>
@@ -66,9 +55,9 @@ class EventCard extends Component {
               <Text style={styles.EventCardDetail}>{entireDateString}</Text>
               <Text style={styles.EventCardDetail}>{this.props.event.place}</Text>
           </View>
-          <View style={{flexDirection: 'row', alignItems:'center', paddingRight:10}}>
-              <Text>+</Text>
-          </View>
+          {/*<View style={{flexDirection: 'row', alignItems:'center', paddingRight:10}}>
+              <Text></Text>
+          </View>*/}
         </View>
       </View>
     );
