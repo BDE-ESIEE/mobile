@@ -7,12 +7,12 @@
   },
   "dependencies": {
     "moment": "^2.17.1",
-    "react": "15.2.0",
-    "react-native": "^0.29.2",
-    "react-native-google-signin": "^0.7.2",
+    "react": "15.4.2",
+    "react-native": "^0.42.0",
+    "react-native-google-signin": "github:na-ji/react-native-google-signin",
     "react-native-htmlview": "^0.5.0",
     "react-native-linear-gradient": "^2.0.0",
-    "react-native-material-design": "^0.3.7",
+    "react-native-material-design": "github:react-native-material-design/react-native-material-design",
     "react-native-router-flux": "^3.37.0",
     "react-native-scrollable-tab-view": "^0.7.0",
     "react-native-vector-icons": "^4.0.0"
