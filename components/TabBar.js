@@ -11,7 +11,7 @@ import styles from './styles/tabbar.js';
 
 class TabBar extends React.Component {
   render () {
-    const tabToIconName = ['ios-calendar', 'ios-bookmarks', 'ios-person'];
+    const tabToIconName = ['ios-calendar', 'ios-bookmarks', 'ios-person','ios-pin'];
 
     return (
       <View style={styles.tabs}>
