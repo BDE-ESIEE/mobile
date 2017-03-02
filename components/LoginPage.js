@@ -15,19 +15,21 @@ class LoginPage extends Component {
 
     this.state = {
       isLoggedIn: false,
-      authCallbackIndex: null
+      authCallbackIndex: null,
+      authError: null
     };
   }
 
   componentDidMount () {
     let self = this;
 
-    let index = Auth.onAuth((user) => {
+    let index = Auth.onAuth((user, error) => {
       if (user) {
         self.setState({isLoggedIn: true});
       } else {
         self.setState({isLoggedIn: false});
       }
+      self.setState({authError: error});
     });
 
     this.setState({
@@ -51,7 +53,7 @@ class LoginPage extends Component {
           value='Se déconnecter'
           text='Se déconnecter'
           raised
-          onPress={Auth.signOut} />
+          onPress={() => Auth.signOut(false)} />
       );
     } else {
       button = (
@@ -67,6 +69,9 @@ class LoginPage extends Component {
       <View style={styles.container}>
         <Text style={styles.welcome}>
           {text}
+        </Text>
+        <Text style={styles.welcome}>
+          {this.state.authError ? this.state.authError : ''}
         </Text>
         {button}
       </View>

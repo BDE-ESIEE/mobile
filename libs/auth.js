@@ -43,9 +43,9 @@ class Auth {
         // iosClientId: '<FROM DEVELOPPER CONSOLE>', // only for iOS
         // client ID of type WEB for your server (needed to verify user ID and offline access)
         // Maxence :
-        webClientId: '582515175129-tjavfgnaejmfddtehv6g435emn3jf576.apps.googleusercontent.com',
+        // webClientId: '582515175129-tjavfgnaejmfddtehv6g435emn3jf576.apps.googleusercontent.com',
         // Naji :
-        // webClientId: '557464199167-4lbgvd3o6c6qjtqitqf1h8vkl9017csl.apps.googleusercontent.com',
+        webClientId: '557464199167-4lbgvd3o6c6qjtqitqf1h8vkl9017csl.apps.googleusercontent.com',
         offlineAccess: true // if you want to access Google API on behalf of the user FROM YOUR SERVER
       })
       .then(() => {
@@ -94,7 +94,7 @@ class Auth {
           this.annalesRefresh();
         } else {
           this.callbacks['auth'].forEach((callback) => {
-            callback(self.user);
+            callback(self.user, false);
           });
         }
       }
@@ -104,16 +104,19 @@ class Auth {
   /**
    * Sign out from the app
    */
-  signOut () {
+  signOut (error = false) {
     let self = this;
     GoogleSignin.signOut()
     .then(() => {
       console.log('out');
+      if (error) {
+        console.log(error);
+      }
       self.user = null;
       Storage.set('user', null);
 
       self.callbacks['auth'].forEach((callback) => {
-        callback(null);
+        callback(null, error);
       });
     })
     .catch((err) => {
@@ -140,11 +143,21 @@ class Auth {
     })
     .then((response) => response.json())
     .then((responseJson) => {
+      // If we had an error
+      if (responseJson.error) {
+        if (responseJson.error_description) {
+          self.signOut(responseJson.error_description);
+        } else {
+          self.signOut(responseJson.error);
+        }
+        return;
+      }
+
       self.user.annales_tokens = responseJson;
       self.user.annales_tokens.expires = moment().add(responseJson.expires_in, 'seconds').toDate();
       Storage.set('user', self.user);
       this.callbacks['auth'].forEach((callback) => {
-        callback(self.user);
+        callback(self.user, false);
       });
     })
     .catch((error) => {
@@ -189,7 +202,7 @@ class Auth {
     if (typeof callback === 'function') {
       this.callbacks['auth'].push(callback);
       if (this.user) {
-        callback(this.user);
+        callback(this.user, false);
       }
 
       return this.callbacks['auth'].length - 1;
