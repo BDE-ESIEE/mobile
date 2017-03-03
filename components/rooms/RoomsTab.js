@@ -58,7 +58,12 @@ class RoomsTab extends Component {
 
       response.json().then((json) => {
         let rooms = json;
-        console.log(rooms);
+        let roomsByEpi = [[],[],[],[],[],[],[]];
+        rooms.map((room)=>{
+          let roomCategory = this.getRoomCategory(room);
+          roomsByEpi[roomCategory].push(room);
+        });
+        console.log(room)
         this.setState({
           rooms:this.state.rooms.cloneWithRows(rooms),
           loading:false
@@ -66,6 +71,16 @@ class RoomsTab extends Component {
       });
     });
   }
+  getRoomCategory(room) {
+    if (isNaN(room))
+      return 0;
+    var roomNumber = parseInt(room);
+    if (roomNumber > 999 && roomNumber < 8000) {
+      return Math.floor(roomNumber / 1000)
+    } else {
+      return 0;
+    }
+  };
 }
 
 module.exports = RoomsTab;
