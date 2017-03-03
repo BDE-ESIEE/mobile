@@ -82,8 +82,6 @@ class EventsList extends Component {
               eventsByWeek[weekDiff] = [];
             }
             eventsByWeek[weekDiff].push(event);
-            eventsByWeek[weekDiff].push(event);
-            eventsByWeek[weekDiff].push(event);
           }
         })
         this.setState({events:this.state.events.cloneWithRowsAndSections(eventsByWeek)});

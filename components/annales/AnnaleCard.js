@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-// import styles from '../styles/events.js'
+import styles from '../styles/annales.js'
 import { Card } from 'react-native-material-design';
 
 import AnnalesApi from '../../libs/api/annales';
@@ -49,10 +49,10 @@ class AnnaleCard extends Component {
         <TouchableOpacity onPress={() => {this.toggle()}} >
           <Card>
             <Card.Body>
-              <Text style={{fontWeight: 'bold', color: '#000'}}>{this.props.annale.subject}</Text>
-              <Text>{this.props.annale.teacher}</Text>
-              <Text>{this.props.annale.unit}</Text>
-              <Text>{this.props.annale.year}</Text>
+              <Text style={styles.cardSubject}>{this.props.annale.subject}</Text>
+              <Text style={styles.cardText}>{this.props.annale.teacher}</Text>
+              <Text style={styles.cardText}>{this.props.annale.unit}</Text>
+              <Text style={styles.cardText}>{this.props.annale.year}</Text>
               {cardLinks}
             </Card.Body>
           </Card>

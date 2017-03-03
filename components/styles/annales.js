@@ -30,6 +30,8 @@ const styles = StyleSheet.create({
     marginRight:10,
     borderBottomWidth:0,
     color:"rgba(255 , 255 , 255 , 0.9)",
+    fontFamily:"ProximaNova-Regular",
+    fontSize:14.5
   },
   inputIcon: {
     marginTop:9,
@@ -41,6 +43,15 @@ const styles = StyleSheet.create({
     flexDirection:"column",
     justifyContent:"center"
 
+  },
+  cardSubject: {
+    color:"#000",
+    fontFamily:"ProximaNova-Bold",
+    fontSize:14.5
+  },
+  cardText: {
+    fontFamily:"ProximaNovaCond-Regular",
+    fontSize:14.5
   }
 });
 

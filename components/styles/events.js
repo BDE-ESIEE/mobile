@@ -34,9 +34,9 @@ const styles = StyleSheet.create({
     fontSize: 14.5
   },
   EventCardDetail: {
-    fontFamily:"ProximaNova-Regular",
+    fontFamily:"ProximaNovaCond-Regular",
     color: "rgba(42, 42, 42, 0.7)",
-    fontSize: 13
+    fontSize: 14
   },
   weekHeader: {
     height:130,
