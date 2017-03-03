@@ -58,12 +58,21 @@ class RoomsTab extends Component {
 
       response.json().then((json) => {
         let rooms = json;
-        let roomsByEpi = [[],[],[],[],[],[],[]];
+        let roomsByEpi = [
+  				{name:"Autres",rooms:[]},
+  				{name:"Épi",number:"1",rooms:[]},
+  				{name:"Épi",number:"2",rooms:[]},
+  				{name:"Épi",number:"3",rooms:[]},
+  				{name:"Épi",number:"4",rooms:[]},
+  				{name:"Épi",number:"5",rooms:[]},
+  				{name:"Épi",number:"6",rooms:[]},
+  				{name:"Épi",number:"7",rooms:[]},
+        ];
         rooms.map((room)=>{
           let roomCategory = this.getRoomCategory(room);
-          roomsByEpi[roomCategory].push(room);
+          roomsByEpi[roomCategory].rooms.push(room);
         });
-        console.log(room)
+        console.log(roomsByEpi)
         this.setState({
           rooms:this.state.rooms.cloneWithRows(rooms),
           loading:false

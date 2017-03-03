@@ -84,7 +84,7 @@ class AnnalesHome extends Component {
 
     if (this.state.isLoggedIn) {
       components = (
-        <View style={styles.annales}>
+        <View style={{flex: 1, flexDirection: 'column',marginTop:-30*this.state.searchHeight, marginBottom:-30*this.state.searchHeight}}>
           <KeyboardAvoidingView behavior="padding"
           style={{flexDirection:"column", flex:this.state.searchHeight, minHeight:60}}>
           <LinearGradient

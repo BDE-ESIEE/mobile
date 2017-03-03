@@ -14,12 +14,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10
   },
-  annales: {
-    flex: 1,
-    flexDirection: 'column',
-    marginTop:-30,
-    marginBottom:-30
-  },
   inputContainer: {
     height: 40,
     backgroundColor:"rgba(255, 255, 255, 0.4)",
