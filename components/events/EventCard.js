@@ -25,22 +25,7 @@ class EventCard extends Component {
       entireDateString = start.format('[Du] D MMMM HH[h]mm') + end.format(' [au] D MMMM HH[h]mm');
     }
     let squareColor;
-    if(this.props.row%3 == 0) {
-      squareColor = "#b9e3c6";
-    } else if (this.props.row%3 == 2) {
-      squareColor = "#59c9a5";
-    } else {
-      squareColor = "#d81e5b";
-    }
     squareColor = "transparent";
-    if (this.props.event.news_ids && this.props.event.news_ids.length > 0) {
-      let goToNews = () => Actions.news({newsId: this.props.event.news_ids[0]});
-      action = (
-        <Card.Actions position='right'>
-          <Button text='VOIR' onPress={goToNews} overrides={{textColor: '#000'}} />
-        </Card.Actions>
-      );
-    }
 
     return (
       <View >
