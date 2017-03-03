@@ -16,7 +16,9 @@ const styles = StyleSheet.create({
   },
   annales: {
     flex: 1,
-    flexDirection: 'column'
+    flexDirection: 'column',
+    marginTop:-30,
+    marginBottom:-30
   },
   inputContainer: {
     height: 40,

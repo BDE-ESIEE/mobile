@@ -61,6 +61,7 @@ class AnnalesHome extends Component {
     AnnalesApi
     .searchAnnales(event.nativeEvent.text)
     .then((response) => {
+      console.log(response);
       self.setState({
         annales: this.state.annales.cloneWithRows(response.documents)
       });
@@ -70,7 +71,7 @@ class AnnalesHome extends Component {
         this.setState({
           searchHeight:0,
           listHeight:1,
-          listMaxHeight:-1
+          listMaxHeight:999999
         })
       },1000)
     }).catch((error) => {
@@ -84,8 +85,8 @@ class AnnalesHome extends Component {
     if (this.state.isLoggedIn) {
       components = (
         <View style={styles.annales}>
-          <KeyboardAvoidingView behavior="padding" // Special animatable View
-          style={{flexDirection:"column", flex:this.state.searchHeight}}>
+          <KeyboardAvoidingView behavior="padding"
+          style={{flexDirection:"column", flex:this.state.searchHeight, minHeight:60}}>
           <LinearGradient
             start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
             colors={['#FE734C', '#FF4D59']}
