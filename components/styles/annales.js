@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
   searchBg: {
     flex:1,
     flexDirection:"column",
-    justifyContent:"center"
-
+    justifyContent:"center",
+    paddingTop:25
   },
   cardSubject: {
     color:"#000",

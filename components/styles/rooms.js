@@ -9,7 +9,8 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
   },
   topBar: {
-    height:55,
+    paddingTop:25,
+    height:80,
     flexDirection: "column",
     justifyContent:"center",
     alignItems:"center",

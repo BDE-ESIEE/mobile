@@ -86,7 +86,7 @@ class AnnalesHome extends Component {
       components = (
         <View style={{flex: 1, flexDirection: 'column',marginTop:-30*this.state.searchHeight, marginBottom:-30*this.state.searchHeight}}>
           <KeyboardAvoidingView behavior="padding"
-          style={{flexDirection:"column", flex:this.state.searchHeight, minHeight:60}}>
+          style={{flexDirection:"column", flex:this.state.searchHeight, minHeight:80}}>
           <LinearGradient
             start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
             colors={['#FE734C', '#FF4D59']}

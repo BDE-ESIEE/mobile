@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   Text,
   View,
-  ListView
+  ListView,
+  StatusBar
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import moment from 'moment';
@@ -20,6 +21,7 @@ class RoomsTab extends Component {
   render() {
     return (
       <View style={styles.container}>
+         <StatusBar translucent={true} backgroundColor="rgba(0,0,0,0.2)" barStyle="light-content" />
         <View>
           <LinearGradient
             start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
