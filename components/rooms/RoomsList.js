@@ -73,7 +73,7 @@ class RoomsList extends Component {
     );
   }
   getRooms(time) {
-    fetch('https://bde.esiee.fr/api/calendar/rooms', {
+    fetch('https://bde.esiee.fr/api/calendar/rooms/'+time, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

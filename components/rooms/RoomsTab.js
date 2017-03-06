@@ -16,14 +16,14 @@ class RoomsTab extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        time:"",
         timeDiff:2
       };
   }
   render() {
-    console.log(this.state)
-    let timeName = moment().add(this.state.timeDiff, 'hours').fromNow();
-    timeName = this.state.timeDiff;
+    let timeName = "maintenant";
+    if(this.state.timeDiff != 0) {
+      timeName = moment().add(this.state.timeDiff, 'hours').fromNow();
+    }
     return (
 
       <View style={styles.container}>
@@ -33,7 +33,7 @@ class RoomsTab extends Component {
             start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
             colors={['#FE734C', '#FF4D59']}
             style={styles.topBar}>
-            <TouchableOpacity OnPress={()=>this.decrTime()}>
+            <TouchableOpacity onPress={()=>this.decrTime()}>
               <Text style={styles.topBarButton}>
                 -
               </Text>
@@ -42,22 +42,22 @@ class RoomsTab extends Component {
               Salles libres
               <Text style={{fontFamily:"ProximaNova-RegItalic"}}> {timeName}</Text>
             </Text>
-            <TouchableOpacity OnPress={this.incrTime}>
+            <TouchableOpacity onPress={()=>this.incrTime()}>
               <Text style={styles.topBarButton}>
                 +
               </Text>
             </TouchableOpacity>
           </LinearGradient>
         </View>
-        <RoomsList time={this.state.time}></RoomsList>
+        <RoomsList time={moment().add(this.state.timeDiff, 'hours').format()}></RoomsList>
       </View>
     );
   }
   incrTime() {
-    console.log("incr")
     this.setState({timeDiff:this.state.timeDiff + 1});
   }
-  descTime() {
+  decrTime() {
+    if(this.state.timeDiff > 0)
     this.setState({timeDiff:this.state.timeDiff - 1});
   }
 }
