@@ -43,9 +43,9 @@ class Auth {
         // iosClientId: '<FROM DEVELOPPER CONSOLE>', // only for iOS
         // client ID of type WEB for your server (needed to verify user ID and offline access)
         // Maxence :
-        webClientId: '582515175129-tjavfgnaejmfddtehv6g435emn3jf576.apps.googleusercontent.com',
+        // webClientId: '582515175129-tjavfgnaejmfddtehv6g435emn3jf576.apps.googleusercontent.com',
         // Naji :
-        //webClientId: '557464199167-4lbgvd3o6c6qjtqitqf1h8vkl9017csl.apps.googleusercontent.com',
+        webClientId: '557464199167-4lbgvd3o6c6qjtqitqf1h8vkl9017csl.apps.googleusercontent.com',
         offlineAccess: true // if you want to access Google API on behalf of the user FROM YOUR SERVER
       })
       .then(() => {

@@ -42,3 +42,4 @@ android/keystores/debug.keystore
 
 # Security
 google-services.json
+*.jks
