@@ -16,7 +16,7 @@ class RoomsTab extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        timeDiff:2
+        timeDiff:0
       };
   }
   render() {
