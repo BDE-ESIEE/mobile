@@ -40,7 +40,9 @@ class RoomsList extends Component {
     this.setState({loading:true});;
   }
   componentDidUpdate(prevProps){
-    this.getRooms(this.props.time);
+    if(prevProps != this.props) {
+      this.getRooms(this.props.time);
+    }
   }
   render() {
     return (
