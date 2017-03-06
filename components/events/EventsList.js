@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   Text,
   View,
-  ListView
+  ListView,
+  ActivityIndicator
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import moment from 'moment';
@@ -17,20 +18,35 @@ class EventsList extends Component {
           events: new ListView.DataSource({
               rowHasChanged: (row1, row2) => row1 !== row2,
               sectionHeaderHasChanged: (s1, s2) => s1 !== s2
-          })
+          }),
+          loading:true
       };
   }
   componentDidMount() {
     this.getEvents();
   }
   render() {
-    return (
-      <View style={styles.container}>
+    let loadingElement;
+    let listElement;
+    if(this.state.loading) {
+      loadingElement = (
+        <View style={{flex:1,flexDirection:"column",justifyContent:"center"}}>
+          <ActivityIndicator color="#FF4D59" size="large"/>
+        </View>
+      )
+    } else {
+      listElement = (
         <ListView
           dataSource={this.state.events}
           renderRow={(event,sectionID,rowID) => <EventCard event={event} row={rowID}></EventCard>}
           renderSectionHeader={this.renderHeader}
           />
+      )
+    }
+    return (
+      <View style={styles.container}>
+        {loadingElement}
+        {listElement}
       </View>
     );
   }
@@ -84,7 +100,7 @@ class EventsList extends Component {
             eventsByWeek[weekDiff].push(event);
           }
         })
-        this.setState({events:this.state.events.cloneWithRowsAndSections(eventsByWeek)});
+        this.setState({loading:false,events:this.state.events.cloneWithRowsAndSections(eventsByWeek)});
       });
     });
   }
