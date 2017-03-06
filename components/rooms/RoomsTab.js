@@ -27,7 +27,7 @@ class RoomsTab extends Component {
     return (
 
       <View style={styles.container}>
-         <StatusBar translucent={true} backgroundColor="rgba(0,0,0,0.2)" barStyle="light-content"/>
+        <StatusBar translucent={true} backgroundColor="rgba(0,0,0,0.2)" barStyle="light-content"/>
         <View>
           <LinearGradient
             start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}

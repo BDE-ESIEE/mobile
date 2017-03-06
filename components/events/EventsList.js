@@ -3,7 +3,8 @@ import {
   Text,
   View,
   ListView,
-  ActivityIndicator
+  ActivityIndicator,
+  StatusBar
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import moment from 'moment';
@@ -45,6 +46,7 @@ class EventsList extends Component {
     }
     return (
       <View style={styles.container}>
+        <StatusBar translucent={true} backgroundColor="rgba(0,0,0,0.2)" barStyle="light-content"/>
         {loadingElement}
         {listElement}
       </View>

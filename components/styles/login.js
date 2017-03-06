@@ -9,9 +9,10 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   welcome: {
-    fontSize: 20,
+    fontSize: 30,
     textAlign: 'center',
-    margin: 10
+    margin: 10,
+    fontFamily:"ProximaNova-Light"
   },
   instructions: {
     textAlign: 'center',

@@ -10,9 +10,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   welcome: {
-    fontSize: 20,
+    fontSize: 25,
     textAlign: 'center',
-    margin: 10
+    margin: 10,
+    fontFamily:"ProximaNova-Light"
   },
   inputContainer: {
     height: 40,
