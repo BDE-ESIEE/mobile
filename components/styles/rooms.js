@@ -11,14 +11,37 @@ const styles = StyleSheet.create({
   topBar: {
     paddingTop:25,
     height:80,
-    flexDirection: "column",
-    justifyContent:"center",
+    flexDirection: "row",
+    justifyContent:"space-between",
     alignItems:"center",
   },
   topBarText: {
     color:"#ffffff",
     fontSize:17,
     fontFamily:"ProximaNova-Regular"
+  },
+  topBarButton: {
+    color:"#ffffff",
+    fontSize:25,
+    fontFamily:"ProximaNova-Light",
+    marginRight:20,
+    marginLeft:20
+  },
+  loading: {
+    flex:1,
+    flexDirection:"column",
+    justifyContent:"center",
+    padding:40
+  },
+  loadingIndicator: {
+    marginBottom:30
+  },
+  loadingText: {
+    color:"black",
+    fontSize:23,
+    fontFamily:"ProximaNova-Light",
+    textAlign:"center",
+    lineHeight:30
   },
   list: {
     flex:1

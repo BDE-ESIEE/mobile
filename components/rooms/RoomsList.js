@@ -45,20 +45,34 @@ class RoomsList extends Component {
     }
   }
   render() {
+    let loadingElement;
+    let listElement;
+    if(this.state.loading) {
+      let loadingText = loadingMessages[Math.floor(Math.random() * loadingMessages.length)];
+      loadingElement = (
+        <View style={styles.loading}>
+          <ActivityIndicator color="#FF4D59" size="large" style={styles.loadingIndicator}/>
+          <Text style={styles.loadingText}>
+            {loadingText}
+          </Text>
+        </View>
+      )
+    } else {
+      listElement = (
+        <ListView
+          dataSource={this.state.rooms}
+          renderRow={(epi,sectionID,rowID) => <RoomsListItem epi={epi}></RoomsListItem>}
+          />
+      )
+    }
     return (
         <View style={styles.list}>
-          {this.state.loading && (
-            <Text>Loading</Text>
-          )}
-            <ListView
-              dataSource={this.state.rooms}
-              renderRow={(epi,sectionID,rowID) => <RoomsListItem epi={epi}></RoomsListItem>}
-              />
+          {loadingElement}
+          {listElement}
         </View>
     );
   }
   getRooms(time) {
-    console.log("getrooms")
     fetch('https://bde.esiee.fr/api/calendar/rooms', {
       method: 'GET',
       headers: {
