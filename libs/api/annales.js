@@ -47,7 +47,7 @@ class AnnalesApi {
    *
    * @return Promise
    */
-  static searchAnnales (query, page = 0) {
+  static searchAnnales (query, page = 1) {
     return new Promise((resolve, reject) => {
       AnnalesApi
       .baseRequest('document/search.json', {s: query, page: page})
