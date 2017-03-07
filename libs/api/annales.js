@@ -1,6 +1,7 @@
 import Auth from '../auth';
 
-const baseUrl = 'https://bde.esiee.fr/annales/api/';
+const baseUrl = 'https://bde.esiee.fr/annales/';
+const baseApiUrl = `${baseUrl}api/`;
 
 /* global fetch */
 class AnnalesApi {
@@ -22,7 +23,7 @@ class AnnalesApi {
         return key + '=' + encodeURIComponent(params[key]);
       }).join('&');
 
-      fetch(baseUrl + endpoint + paramsUrl, {
+      fetch(baseApiUrl + endpoint + paramsUrl, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -72,6 +73,12 @@ class AnnalesApi {
       AnnalesApi
       .baseRequest(`document/document/${id}`)
       .then((response) => {
+        if (response && response.document && response.document.files && response.document.files.length) {
+          response.document.files.forEach(function (file, index) {
+            response.document.files[index].download_url = `${baseUrl}files/${file.id}/download`;
+          });
+          console.log(response.document.files);
+        }
         return resolve(response);
       })
       .catch((error) => {
