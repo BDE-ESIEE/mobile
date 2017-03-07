@@ -58,7 +58,7 @@ class RoomsTab extends Component {
   }
   decrTime() {
     if(this.state.timeDiff > 0)
-    this.setState({timeDiff:this.state.timeDiff - 1});
+      this.setState({timeDiff:this.state.timeDiff - 1});
   }
 }
 
