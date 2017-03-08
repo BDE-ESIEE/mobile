@@ -6,11 +6,11 @@ import {
   ListView,
   LayoutAnimation,
   KeyboardAvoidingView,
-  StatusBar
+  StatusBar,
+  TouchableOpacity
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
-
 
 import AnnalesApi from '../../libs/api/annales';
 import Auth from '../../libs/auth';
@@ -27,16 +27,17 @@ class AnnalesHome extends Component {
         rowHasChanged: (row1, row2) => row1 !== row2
       }),
       authCallbackIndex: null,
-      searchHeight:1,
-      listHeight:0,
-      listMaxHeight:0
+      searchHeight: 1,
+      listHeight: 0,
+      listMaxHeight: 0,
+      suggestion: false
     };
 
     this.search = this.search.bind(this);
+    this.useSuggestion = this.useSuggestion.bind(this);
   }
 
   componentDidMount () {
-
     let self = this;
 
     let index = Auth.onAuth((user) => {
@@ -62,59 +63,79 @@ class AnnalesHome extends Component {
     AnnalesApi
     .searchAnnales(event.nativeEvent.text)
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       self.setState({
         annales: this.state.annales.cloneWithRows(response.documents)
       });
       // Animating Heights
-      setTimeout(()=>{
+      setTimeout(() => {
         LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
         this.setState({
-          searchHeight:0,
-          listHeight:1,
-          listMaxHeight:999999
-        })
-      },1000)
+          searchHeight: 0,
+          listHeight: 1,
+          listMaxHeight: 999999,
+          suggestion: response.suggestion
+        });
+      }, 1000);
     }).catch((error) => {
       console.log(error);
     });
+  }
+
+  useSuggestion () {
+    if (this.state.suggestion) {
+      this.searchInput.setNativeProps({text: this.state.suggestion});
+      this.search({nativeEvent: {text: this.state.suggestion}});
+    }
   }
 
   render () {
     let components;
 
     if (this.state.isLoggedIn) {
+      let suggestion;
+      if (this.state.suggestion) {
+        suggestion = (
+          <TouchableOpacity onPress={this.useSuggestion}>
+            <Text style={{textAlign: 'center', padding: 5}}>
+              Suggestion de recherche :
+              <Text style={{color: '#FE734C'}}> {this.state.suggestion}</Text>
+            </Text>
+          </TouchableOpacity>
+        );
+      }
       components = (
-        <View style={{flex: 1, flexDirection: 'column',marginTop:-40*this.state.searchHeight, marginBottom:-40*this.state.searchHeight}}>
-          <KeyboardAvoidingView behavior="padding"
-          style={{flexDirection:"column", flex:this.state.searchHeight, minHeight:80}}>
-          <LinearGradient
-            start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
-            colors={['#FE734C', '#FF4D59']}
-            style={styles.searchBg}>
-            <View style={styles.inputContainer}>
-              <Icon
-                name="ios-search"
-                size={21}
-                style={styles.inputIcon}
-              />
-              <TextInput
-                onSubmitEditing={this.search}
-                returnKeyType='search'
-                style={styles.input}
-                underlineColorAndroid="transparent"
-                placeholder="Cherchez une annale"
-              />
-          </View>
+        <View style={{flex: 1, flexDirection: 'column', marginTop: -40 * this.state.searchHeight, marginBottom: -40 * this.state.searchHeight}}>
+          <KeyboardAvoidingView behavior='padding'
+            style={{flexDirection: 'column', flex: this.state.searchHeight, minHeight: 80}}>
+            <LinearGradient
+              start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
+              colors={['#FE734C', '#FF4D59']}
+              style={styles.searchBg}>
+              <View style={styles.inputContainer}>
+                <Icon
+                  name='ios-search'
+                  size={21}
+                  style={styles.inputIcon}
+                />
+                <TextInput
+                  ref={(component) => { this.searchInput = component; return; }}
+                  onSubmitEditing={this.search}
+                  returnKeyType='search'
+                  style={styles.input}
+                  underlineColorAndroid='transparent'
+                  placeholder='Cherchez une annale'
+                />
+              </View>
+            </LinearGradient>
+          </KeyboardAvoidingView>
 
-          </LinearGradient>
-        </KeyboardAvoidingView>
-
+          {suggestion}
 
           <ListView
             dataSource={this.state.annales}
-            style={{flex:this.state.listHeight,maxHeight:this.state.listMaxHeight}}
-            renderRow={(annale) => <AnnaleCard annale={annale} style={{opacity:1}} />}
+            style={{flex: this.state.listHeight, maxHeight: this.state.listMaxHeight}}
+            renderRow={(annale) => <AnnaleCard annale={annale} style={{opacity: 1}} />}
           />
         </View>
       );
@@ -125,9 +146,10 @@ class AnnalesHome extends Component {
         </Text>
       );
     }
+
     return (
       <View style={styles.container}>
-        <StatusBar translucent={true} backgroundColor="rgba(0,0,0,0.2)" barStyle="light-content"/>
+        <StatusBar translucent backgroundColor='rgba(0,0,0,0.2)' barStyle='light-content' />
         {components}
       </View>
     );
