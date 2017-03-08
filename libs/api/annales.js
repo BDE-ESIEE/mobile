@@ -73,12 +73,6 @@ class AnnalesApi {
       AnnalesApi
       .baseRequest(`document/document/${id}`)
       .then((response) => {
-        if (response && response.document && response.document.files && response.document.files.length) {
-          response.document.files.forEach(function (file, index) {
-            response.document.files[index].download_url = `${baseUrl}files/${file.id}/download`;
-          });
-          console.log(response.document.files);
-        }
         return resolve(response);
       })
       .catch((error) => {
