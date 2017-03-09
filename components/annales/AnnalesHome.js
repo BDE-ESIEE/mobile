@@ -76,7 +76,7 @@ class AnnalesHome extends Component {
           listMaxHeight: 999999,
           suggestion: response.suggestion
         });
-      }, 1000);
+      }, 250);
     }).catch((error) => {
       console.log(error);
     });
