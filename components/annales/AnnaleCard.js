@@ -36,7 +36,7 @@ class AnnaleCard extends Component {
           <View style={{height:1, paddingRight:-15, backgroundColor:'grey'}}></View>
           {this.state.links.map((link, i) => {
             return (
-              <TouchableOpacity key={link.id} onPress={() => this.openLink(link.path)}>
+              <TouchableOpacity key={link.id} onPress={() => this.openLink(link.download_path)}>
                 <Text style={{textDecorationLine: 'underline'}}>{link.name}</Text>
               </TouchableOpacity>
             );
@@ -75,7 +75,7 @@ class AnnaleCard extends Component {
     }
   }
   openLink (link) {
-    Linking.openURL("http://bde.esiee.fr/annales/"+link)
+    Linking.openURL(`https://bde.esiee.fr${link}`);
   }
 }
 
