@@ -19,7 +19,7 @@ class RoomsListItem extends Component {
             <Text style={styles.roomsListItemSmall}>{this.props.epi.name}</Text>
             <Text style={styles.roomsListItemNumber}>{this.props.epi.number}</Text>
           </View>
-          <View style={{height: 70, flex: 1, overflow:"hidden", paddingTop: 10}}>
+          <View style={{height: 70, flex: 1, overflow:"hidden", paddingTop: 10, justifyContent:"center"}}>
               {/*<Text style={styles.EventCardTitle}>{this.props.epi.name}</Text>*/}
               <Text style={styles.roomsListItemDetail}>{this.props.epi.rooms.join(', ')}</Text>
           </View>
