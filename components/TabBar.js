@@ -7,25 +7,37 @@ import {
   TouchableOpacity
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Piwik from 'react-native-piwik';
+
 import styles from './styles/tabbar.js';
 
 class TabBar extends React.Component {
   render () {
     const tabToIconName = ['ios-calendar', 'ios-bookmarks', 'ios-pin', 'ios-person'];
+    // Duplication of App.js... because we don't want to use Flux/Redux
+    const tabToRoute = ['events', 'annales', 'rooms', 'account'];
+
+    let goToPage = (props, i) => {
+      if (props.goToPage) {
+        props.goToPage(i);
+        // User tracking
+        Piwik.trackScreen(`/${tabToRoute[i]}`, props.tabs[i]);
+      }
+    };
 
     return (
       <View style={styles.tabs}>
         {this.props.tabs.map((tab, i) => {
-          let active = this.props.activeTab == i;
-          let color = active ? "#FE734C" : "#4a4a4a";
+          let active = this.props.activeTab === i;
+          let color = active ? '#FE734C' : '#4a4a4a';
           return (
-            <TouchableOpacity key={tab} onPress={() => { if (this.props.goToPage) { this.props.goToPage(i); } }} style={styles.tab}>
+            <TouchableOpacity key={tab} onPress={() => { goToPage(this.props, i); }} style={styles.tab}>
               <Icon
-                name={tabToIconName[i] + (active ? "":"-outline")}
+                name={tabToIconName[i] + (active ? '' : '-outline')}
                 size={23}
                 color={color}
               />
-            <Text style={{fontSize: 11.5,color:color,fontFamily:"ProximaNova-Bold"}}>{tab}</Text>
+              <Text style={{fontSize: 11.5, color: color, fontFamily: 'ProximaNova-Bold'}}>{tab}</Text>
             </TouchableOpacity>
           );
         })}

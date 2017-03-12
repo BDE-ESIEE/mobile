@@ -6,9 +6,10 @@ import {
   Linking
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import Piwik from 'react-native-piwik';
+import { Card } from 'react-native-material-design';
 
 import styles from '../styles/annales.js'
-import { Card } from 'react-native-material-design';
 
 import AnnalesApi from '../../libs/api/annales';
 import Auth from '../../libs/auth';
@@ -75,6 +76,7 @@ class AnnaleCard extends Component {
     }
   }
   openLink (link) {
+    Piwik.trackEvent('annales', 'download', link, 1);
     Linking.openURL(`https://bde.esiee.fr${link}`);
   }
 }
