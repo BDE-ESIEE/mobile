@@ -13,6 +13,7 @@
     "react-native-htmlview": "^0.5.0",
     "react-native-linear-gradient": "^2.0.0",
     "react-native-material-design": "github:react-native-material-design/react-native-material-design",
+    "react-native-piwik": "0.0.4",
     "react-native-router-flux": "^3.37.0",
     "react-native-scrollable-tab-view": "^0.7.0",
     "react-native-vector-icons": "^4.0.0"
