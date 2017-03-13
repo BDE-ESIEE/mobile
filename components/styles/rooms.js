@@ -15,10 +15,15 @@ const styles = StyleSheet.create({
     justifyContent:"space-between",
     alignItems:"center",
   },
-  topBarText: {
+  topBarNormalText: {
     color:"#ffffff",
-    fontSize:17,
-    fontFamily:"ProximaNova-Regular"
+    fontSize:16,
+    fontFamily:"ProximaNova-Bold"
+  },
+  topBarEmphasisText: {
+    color:"#ffffff",
+    fontSize:16,
+    fontFamily:"ProximaNova-BoldIt"
   },
   topBarButton: {
     color:"#ffffff",

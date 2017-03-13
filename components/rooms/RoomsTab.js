@@ -25,8 +25,8 @@ class RoomsTab extends Component {
   }
   render() {
     let timeName = "maintenant";
-    if(this.state.timeDiff != 0) {
-      timeName = moment().add(this.state.timeDiff, 'hours').fromNow();
+    if(this.state.timeDiff > 0) {
+      timeName = moment().add(this.state.timeDiff, 'hours').calendar(null,{sameElse:'[le] DD/MM à HH:MM'}).toLowerCase();
     }
     return (
 
@@ -47,9 +47,9 @@ class RoomsTab extends Component {
                 }]}
               />
             </TouchableOpacity>
-            <Text style={styles.topBarText}>
-              Salles libres
-              <Text style={{fontFamily:"ProximaNova-RegItalic"}}> {timeName}</Text>
+            <Text>
+              <Text style={styles.topBarNormalText}>Salles libres</Text>
+              <Text style={styles.topBarEmphasisText}> {timeName}</Text>
             </Text>
             <TouchableOpacity onPress={()=>this.incrTime()}>
               <Icon
