@@ -3,11 +3,13 @@ import {
 } from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row'
+  wrapper: {
+    flex:1,
+    flexDirection:"column",
+    justifyContent:"center"
+  },
+  wrapperResults: {
+    //flex:1
   },
   welcome: {
     fontSize: 25,
@@ -15,6 +17,7 @@ const styles = StyleSheet.create({
     margin: 10,
     fontFamily:"ProximaNova-Light"
   },
+  // AnnalesSearch
   inputContainer: {
     height: 40,
     backgroundColor:"rgba(255, 255, 255, 0.4)",
@@ -43,8 +46,10 @@ const styles = StyleSheet.create({
     flex:1,
     flexDirection:"column",
     justifyContent:"center",
-    paddingTop:25
+    paddingTop:25,
+    minHeight:80
   },
+  //AnnalesResults
   cardSubject: {
     color:"#000",
     fontFamily:"ProximaNova-Bold",
