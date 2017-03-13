@@ -47,6 +47,11 @@ class EventsList extends Component {
     return (
       <View style={styles.container}>
         <StatusBar translucent={true} backgroundColor="rgba(0,0,0,0.2)" barStyle="light-content"/>
+        <LinearGradient
+          start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
+          colors={['#FE734C', '#FF4D59']}
+          style={{height:25}}>
+        </LinearGradient>
         {loadingElement}
         {listElement}
       </View>

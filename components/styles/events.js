@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
     fontSize: 14
   },
   weekHeader: {
-    paddingTop:25,
     height:155,
     flexDirection: "column",
     justifyContent:"center",
