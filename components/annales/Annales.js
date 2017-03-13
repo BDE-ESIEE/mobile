@@ -15,7 +15,8 @@ import AnnalesSearch from './AnnalesSearch';
 class Annales extends Component {
   constructor () {
     super();
-
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.ds = ds;
     this.state = {
       loggedIn: false,
       nextPageIndex:1,
@@ -26,10 +27,7 @@ class Annales extends Component {
       landing:true,
       error:false, // false, "connection-error", "no-annales"
       annales:[],
-      annalesDataSource: new ListView.DataSource({
-        //TODO : FIXME : PLEASE : Figure out why this doesn't work otherwise
-        rowHasChanged: (row1, row2) => {return true} // I'm sorry.
-      })
+      annalesDataSource: ds.cloneWithRows([])
     };
 
     this.launchQuery = this.launchQuery.bind(this);
@@ -58,7 +56,7 @@ class Annales extends Component {
         let newAnnales = this.state.annales.concat(response.documents);
         this.setState({
           annales:newAnnales,
-          annalesDataSource: this.state.annalesDataSource.cloneWithRows(newAnnales),
+          annalesDataSource: this.ds.cloneWithRows(newAnnales),
           nextPageAvailable:response.next_page ? true : false
         });
         this.setState((state) => {
@@ -87,7 +85,7 @@ class Annales extends Component {
     newAnnales[annaleIndex].loading = true;
     this.setState({
       annales:newAnnales,
-      annalesDataSource: this.state.annalesDataSource.cloneWithRows(newAnnales)
+      annalesDataSource: this.ds.cloneWithRows(newAnnales)
     });
 
     AnnalesApi
@@ -98,7 +96,7 @@ class Annales extends Component {
       newAnnales[annaleIndex].details = response.document;
       this.setState({
         annales:newAnnales,
-        annalesDataSource: this.state.annalesDataSource.cloneWithRows(newAnnales)
+        annalesDataSource: this.ds.cloneWithRows(newAnnales)
       });
     }).catch((error) => {
       console.log(error);
@@ -109,7 +107,7 @@ class Annales extends Component {
     this.setState(() => {
       return {
         annales:[],
-        annalesDataSource: this.state.annalesDataSource.cloneWithRows([]),
+        annalesDataSource: this.ds.cloneWithRows([]),
         suggestion:false,
         error:false,
         nextPageIndex:1,
