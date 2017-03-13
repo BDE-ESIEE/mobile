@@ -7,9 +7,11 @@ import {
   ListView,
   ActivityIndicator
 } from 'react-native';
+import Piwik from 'react-native-piwik';
+import { Card } from 'react-native-material-design';
 
 import styles from '../styles/annales.js'
-import { Card } from 'react-native-material-design';
+
 
 class AnnalesResults extends Component {
   render () {
@@ -87,6 +89,7 @@ class AnnalesResults extends Component {
   }
 
   openLink (link) {
+    Piwik.trackEvent('annales', 'download', link, 1);
     Linking.openURL(`https://bde.esiee.fr${link}`);
   }
 
