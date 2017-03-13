@@ -28,7 +28,11 @@ class AnnalesSearch extends Component {
   render () {
     return (
         <KeyboardAvoidingView behavior='padding'
-          style={{flexDirection: 'column', flex:this.props.landing ? 1:0, minHeight:80,marginBottom:this.props.landing ? -160:0}}>
+          style={[styles.wrapperSearch,
+            {
+              flex:this.props.landing ? 1:0,
+              marginBottom:this.props.landing ? -160:0,
+            }]}>
           <LinearGradient
             start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
             colors={['#FE734C', '#FF4D59']}
@@ -41,6 +45,7 @@ class AnnalesSearch extends Component {
               />
               <TextInput
                 onChangeText={(text) => this.setState({text})}
+                value={this.state.text}
                 onSubmitEditing={this.submit}
                 returnKeyType='search'
                 style={styles.input}
@@ -56,6 +61,10 @@ class AnnalesSearch extends Component {
 
   submit() {
     this.props.launchQuery(this.state.text);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({text:nextProps.currentQuery});
   }
 
 }

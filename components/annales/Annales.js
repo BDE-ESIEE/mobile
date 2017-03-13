@@ -18,8 +18,8 @@ class Annales extends Component {
 
     this.state = {
       loggedIn: false,
-      currentPage:1,
-      lastPage:false,
+      nextPageIndex:1,
+      nextPageAvailable:true,
       currentQuery:"",
       suggestion: false,
       loading:false,
@@ -33,6 +33,7 @@ class Annales extends Component {
     };
 
     this.launchQuery = this.launchQuery.bind(this);
+    this.loadNextPage = this.loadNextPage.bind(this);
     this.getAnnalesPage = this.getAnnalesPage.bind(this);
     this.getAnnaleDetail = this.getAnnaleDetail.bind(this);
     this.clearAnnales = this.clearAnnales.bind(this);
@@ -57,15 +58,18 @@ class Annales extends Component {
         let newAnnales = this.state.annales.concat(response.documents);
         this.setState({
           annales:newAnnales,
-          annalesDataSource: this.state.annalesDataSource.cloneWithRows(newAnnales)
+          annalesDataSource: this.state.annalesDataSource.cloneWithRows(newAnnales),
+          nextPageAvailable:response.next_page ? true : false
         });
-      } else { // Il n'y pas d'annales avec cette recherche
+        this.setState((state) => {
+          return {nextPageIndex: state.nextPageIndex + 1};
+        });
+      } else if(response.total_count == 0){ // Il n'y pas d'annales avec cette recherche
         this.setState({
           error:"no-annales-found"
         });
       }
       this.setState({
-        lastPage:response.next_page ? false : true,
         suggestion:response.suggestion,
         loading:false
       })
@@ -102,32 +106,32 @@ class Annales extends Component {
   }
 
   clearAnnales () {
-    this.setState({
-      annales:[],
-      annalesDataSource: this.state.annalesDataSource.cloneWithRows([]),
-      suggestion:false,
-      error:false,
-      currentPage:1,
-      lastPage:false
+    this.setState(() => {
+      return {
+        annales:[],
+        annalesDataSource: this.state.annalesDataSource.cloneWithRows([]),
+        suggestion:false,
+        error:false,
+        nextPageIndex:1,
+        nextPageAvailable:true
+      };
     });
   }
 
   launchQuery (query) {
-
-    if(!query) {
-      var query = this.state.currentQuery;
-    }
-    if (this.state.currentQuery != query) {
-      this.clearAnnales();
-    }
-    if(!this.state.lastPage) {
-      this.getAnnalesPage(query,this.state.currentPage);
-      this.setState({
-        currentQuery:query,
-        currentPage:this.state.currentPage + 1
-      });
-    }
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
+    this.clearAnnales();
+    this.getAnnalesPage(query,1);
+    this.setState({
+      currentQuery:query
+    });
     this.setState({landing:false})
+  }
+
+  loadNextPage () {
+    if(this.state.nextPageIndex > 1 && !this.state.loading) {
+      this.getAnnalesPage(this.state.currentQuery,this.state.nextPageIndex);
+    }
   }
 
   render () {
@@ -136,15 +140,18 @@ class Annales extends Component {
         <View style={styles.wrapper}>
           <AnnalesSearch
             launchQuery={this.launchQuery}
+
+            currentQuery={this.state.currentQuery}
             landing={this.state.landing}
             loading={this.state.loading}
             />
           <AnnalesResults
             launchQuery={this.launchQuery}
+            loadNextPage={this.loadNextPage}
             getAnnaleDetail={this.getAnnaleDetail}
 
             annalesDataSource={this.state.annalesDataSource}
-            lastPage={this.state.lastPage}
+            suggestion={this.state.suggestion}
             error={this.state.error}
             landing={this.state.landing}
             loading={this.state.loading}

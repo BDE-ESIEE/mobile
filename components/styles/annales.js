@@ -9,7 +9,11 @@ const styles = StyleSheet.create({
     justifyContent:"center"
   },
   wrapperResults: {
-    //flex:1
+    flexDirection:"column"
+  },
+  wrapperSearch: {
+     minHeight:80,
+     flexDirection: 'column'
   },
   welcome: {
     fontSize: 25,
@@ -58,6 +62,20 @@ const styles = StyleSheet.create({
   cardText: {
     fontFamily:"ProximaNovaCond-Regular",
     fontSize:14.5
+  },
+  suggestionView: {
+    borderRadius:3,
+    backgroundColor:"#FFFFFF",
+    position:"absolute",
+    left:20,
+    right:20,
+    top: 10
+  },
+  suggestionTouch: {
+    padding:15
+  },
+  suggestionText: {
+    fontFamily:"ProximaNova-Semibold",
   }
 });
 

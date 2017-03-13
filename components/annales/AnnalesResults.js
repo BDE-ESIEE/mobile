@@ -18,14 +18,17 @@ class AnnalesResults extends Component {
     return (
       <View style={[styles.wrapperResults,{
           flex:this.props.landing ? 0:1
+
         }]}>
         <ListView
+          style={{paddingTop:this.props.suggestion ? 60:0}}
           dataSource={this.props.annalesDataSource}
           renderRow={(annale,xyz,index) => this.renderCard(annale,index,this.props.getAnnaleDetail)}
-          onEndReached={() => this.props.launchQuery()}
+          onEndReached={() => this.props.loadNextPage()}
           enableEmptySections={true}
 
         />
+      {this.renderSuggestion(this.props.suggestion)}
       {this.renderError(this.props.error)}
       </View>
     )
@@ -88,9 +91,28 @@ class AnnalesResults extends Component {
     }
   }
 
+  renderSuggestion (suggestion) {
+    if (suggestion) {
+      return (
+        <View style={styles.suggestionView} elevation={5}>
+          <TouchableOpacity
+            onPress={()=>this.useSuggestion(suggestion)}
+            style={styles.suggestionTouch}>
+            <Text style={styles.suggestionText} >Essayez en cherchant  "{suggestion}"</Text>
+          </TouchableOpacity>
+        </View>
+      )
+    }
+  }
+
   openLink (link) {
     Piwik.trackEvent('annales', 'download', link, 1);
     Linking.openURL(`https://bde.esiee.fr${link}`);
+  }
+
+  useSuggestion (suggestion) {
+    console.log(suggestion);
+    this.props.launchQuery(suggestion)
   }
 
 }
