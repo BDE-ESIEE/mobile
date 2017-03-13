@@ -11,6 +11,7 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
+import de.bonify.reactnativepiwik.PiwikPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,16 +27,17 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-            new VectorIconsPackage(),
-            new LinearGradientPackage(),
-          new RNGoogleSigninPackage()
+        new MainReactPackage(),
+        new VectorIconsPackage(),
+        new LinearGradientPackage(),
+        new RNGoogleSigninPackage(),
+        new PiwikPackage()
       );
     }
   };
 
   @Override
   public ReactNativeHost getReactNativeHost() {
-      return mReactNativeHost;
+    return mReactNativeHost;
   }
 }

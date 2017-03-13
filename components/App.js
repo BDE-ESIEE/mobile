@@ -3,6 +3,8 @@
 import React from 'react';
 import {UIManager} from 'react-native';
 import {Actions, Scene, Router} from 'react-native-router-flux';
+import Piwik from 'react-native-piwik';
+
 import BottomNavigation from './BottomNavigation';
 import NewsCard from './news/NewsCard';
 import EventsList from './events/EventsList';
@@ -17,7 +19,7 @@ const scenes = Actions.create(
       <Scene key='events' component={EventsList} title='Événements' hideNavBar />
       <Scene key='annales' component={Annales} title='Annales' hideNavBar />
       <Scene key='rooms' component={RoomsTab} title='Salles libres' hideNavBar />
-      <Scene key='login' component={LoginPage} title='Mon compte' hideNavBar />
+      <Scene key='account' component={LoginPage} title='Mon compte' hideNavBar />
     </Scene>
     <Scene key='news' component={NewsCard} title='News' hideNavBar={false} />
   </Scene>
@@ -33,6 +35,8 @@ class App extends React.Component {
   componentDidMount () {
     UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
     Auth.configure();
+    Piwik.initTracker('https://bde.esiee.fr/statistiques/piwik.php', 5);
+    Piwik.trackScreen(`/events`, 'Événements');
     // Storage.clear();
   }
 }
