@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     fontSize:14.5
   },
   suggestionView: {
-    borderRadius:3,
+    borderRadius:50,
     backgroundColor:"#FFFFFF",
     position:"absolute",
     left:20,
@@ -72,10 +72,39 @@ const styles = StyleSheet.create({
     top: 10
   },
   suggestionTouch: {
-    padding:15
+    padding:10,
+    flexDirection:"row",
+    justifyContent:"flex-start",
+    alignItems:"center"
+  },
+  suggestionIcon: {
+    color:"#FE734C",
+    marginLeft:9,
+    marginRight:9
   },
   suggestionText: {
+    textAlign:"center",
+    flex:1
+  },
+  suggestionNormalText: {
     fontFamily:"ProximaNova-Semibold",
+  },
+  suggestionEmphasisText: {
+    fontFamily:"ProximaNova-SemiboldItalic"
+  },
+  errorView: {
+    flex:1,
+    margin:15,
+    marginTop:-75,
+    alignItems:"center"
+  },
+  errorText: {
+    textAlign:"center",
+    fontFamily:"ProximaNova-Bold",
+    fontSize:16
+  },
+  errorIcon: {
+    color:"#FE734C"
   }
 });
 

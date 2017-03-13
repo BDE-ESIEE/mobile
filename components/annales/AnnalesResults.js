@@ -7,8 +7,10 @@ import {
   ListView,
   ActivityIndicator
 } from 'react-native';
+
 import Piwik from 'react-native-piwik';
 import { Card } from 'react-native-material-design';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import styles from '../styles/annales.js'
 
@@ -74,18 +76,29 @@ class AnnalesResults extends Component {
   }
 
   renderError (error) {
+    let message;
     if(error == "connection-error") {
-      return (
-        <View>
-          <Text>Erreur de connexion.</Text>
-        </View>
+      message = (
+        <Text style={styles.errorText}>Erreur de connexion.</Text>
       )
     }
     if(error == "no-annales-found") {
-      return (
+      message = (
         <View>
-          <Text>Aucune annale trouvée avec ces critères.</Text>
-          <Text>Essaie par exemple "E1 Habib Cours" ou "SFP-2001"</Text>
+          <Text style={styles.errorText}>Aucune annale trouvée avec ces critères.</Text>
+          <Text style={styles.errorText}>Essaie par exemple "E1 Habib Cours" ou "SFP-2001"</Text>
+        </View>
+      )
+    }
+    if(error) {
+      return (
+        <View style={styles.errorView}>
+          <Icon
+            name='ios-close-circle-outline'
+            size={50}
+            style={styles.errorIcon}
+          />
+          {message}
         </View>
       )
     }
@@ -98,7 +111,15 @@ class AnnalesResults extends Component {
           <TouchableOpacity
             onPress={()=>this.useSuggestion(suggestion)}
             style={styles.suggestionTouch}>
-            <Text style={styles.suggestionText} >Essayez en cherchant  "{suggestion}"</Text>
+            <Icon
+              name='ios-bulb-outline'
+              size={26}
+              style={styles.suggestionIcon}
+            />
+            <Text style={styles.suggestionText}>
+              <Text style={styles.suggestionNormalText}>Essayez en cherchant</Text>
+              <Text style={styles.suggestionEmphasisText}> {suggestion}</Text>
+            </Text>
           </TouchableOpacity>
         </View>
       )
