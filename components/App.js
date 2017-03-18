@@ -36,7 +36,8 @@ class App extends React.Component {
     UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
     Auth.configure();
     Piwik.initTracker('https://bde.esiee.fr/statistiques/piwik.php', 5);
-    Piwik.trackScreen(`/events`, 'Événements');
+    // TODO FIXME Reenable piwik
+    //Piwik.trackScreen(`/events`, 'Événements');
     // Storage.clear();
   }
 }
