@@ -28,6 +28,7 @@
 		2979ECAA7AFB4CF3BA52488D /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A6C22C6110247B385B6DA69 /* SafariServices.framework */; };
 		4AFFC2B981DC422799B95138 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48050B39B61240DEBCCC36A1 /* AddressBook.framework */; };
 		4BFA6244D081340B2F090112 /* libPods-Lagoon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A88EDE250BC158EF5E53EB42 /* libPods-Lagoon.a */; };
+		632BA0CF546442E1AB31AC0D /* libBNFPiwik.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C5C1776D664F5B980EAD33 /* libBNFPiwik.a */; };
 		657419E64A8A408D88EB00B8 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F336F6BBB2164F17802C473C /* Foundation.ttf */; };
 		7678770AFC664FE68A424596 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7D087C26588433AA23C87B2 /* Entypo.ttf */; };
 		7F106807A6B74EEF990EB2F8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B62B1B03EB145D49385CFF9 /* SystemConfiguration.framework */; };
@@ -236,6 +237,13 @@
 			remoteGlobalIDString = 5DBEB1501B18CEA900B34395;
 			remoteInfo = RNVectorIcons;
 		};
+		87CA69AF1E7D902B009F37EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24C4A65DEAAD4657A88D8FCD /* BNFPiwik.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = BNFPiwik;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -259,6 +267,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Lagoon/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Lagoon/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		24C4A65DEAAD4657A88D8FCD /* BNFPiwik.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BNFPiwik.xcodeproj; path = "../node_modules/react-native-piwik/ios/BNFPiwik.xcodeproj"; sourceTree = "<group>"; };
 		48050B39B61240DEBCCC36A1 /* AddressBook.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		58A998DAA99D4EDA8ADA4EF5 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		59111B71BE484ABB9693EB03 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
@@ -279,6 +288,7 @@
 		A88EDE250BC158EF5E53EB42 /* libPods-Lagoon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lagoon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD00BC691EDA57A8628557B6 /* Pods-Lagoon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lagoon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lagoon/Pods-Lagoon.release.xcconfig"; sourceTree = "<group>"; };
 		AFB2E5970E6BB56011383809 /* libPods-LagoonTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LagoonTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6C5C1776D664F5B980EAD33 /* libBNFPiwik.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libBNFPiwik.a; sourceTree = "<group>"; };
 		BB4A9A35611F4F7688DB3401 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		BDA68D36D98744B3A5BC83BF /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libBVLinearGradient.a; sourceTree = "<group>"; };
 		C4640DF4300749FC974D5210 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
@@ -321,6 +331,7 @@
 				CC1BA9103732482DB4E52BCC /* libBVLinearGradient.a in Frameworks */,
 				02E1D468390A4269939E4019 /* libRNVectorIcons.a in Frameworks */,
 				4BFA6244D081340B2F090112 /* libPods-Lagoon.a in Frameworks */,
+				632BA0CF546442E1AB31AC0D /* libBNFPiwik.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +482,7 @@
 				FB511B3B062C461AA6D99E20 /* RNGoogleSignin.xcodeproj */,
 				A450410C8806448ABBEB89B8 /* BVLinearGradient.xcodeproj */,
 				85C493EC978C429AAA83138E /* RNVectorIcons.xcodeproj */,
+				24C4A65DEAAD4657A88D8FCD /* BNFPiwik.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -528,6 +540,14 @@
 			isa = PBXGroup;
 			children = (
 				87AD49351E7C2086004BE487 /* libRNVectorIcons.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		87CA69AC1E7D902B009F37EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				87CA69B01E7D902B009F37EF /* libBNFPiwik.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -633,6 +653,10 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 87CA69AC1E7D902B009F37EF /* Products */;
+					ProjectRef = 24C4A65DEAAD4657A88D8FCD /* BNFPiwik.xcodeproj */;
+				},
 				{
 					ProductGroup = 87AD48F81E7C2086004BE487 /* Products */;
 					ProjectRef = A450410C8806448ABBEB89B8 /* BVLinearGradient.xcodeproj */;
@@ -877,6 +901,13 @@
 			remoteRef = 87AD49341E7C2086004BE487 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		87CA69B01E7D902B009F37EF /* libBNFPiwik.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBNFPiwik.a;
+			remoteRef = 87CA69AF1E7D902B009F37EF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1075,6 +1106,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lagoon.app/Lagoon";
@@ -1092,6 +1124,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1114,6 +1147,7 @@
 					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-piwik/ios/**",
 				);
 				INFOPLIST_FILE = Lagoon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1140,6 +1174,7 @@
 					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin/**",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-piwik/ios/**",
 				);
 				INFOPLIST_FILE = Lagoon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
