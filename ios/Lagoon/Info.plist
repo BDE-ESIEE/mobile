@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)</string>
+	<string>com.$(PRODUCT_NAME:rfc1034identifier)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -20,6 +20,25 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.googleusercontent.apps.557464199167-o1gsrrdvdvjj7r4l9tspldg35iqi4v0u</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.557464199167-o1gsrrdvdvjj7r4l9tspldg35iqi4v0u</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.Lagoon</string>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -49,23 +68,23 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
-    <string>ProximaNova-Black.otf</string>
-    <string>ProximaNova-Bold.otf</string>
-    <string>ProximaNova-BoldIt.otf</string>
-    <string>ProximaNova-Extrabold.otf</string>
-    <string>ProximaNova-Light.otf</string>
-    <string>ProximaNova-LightItalic.otf</string>
-    <string>ProximaNova-RegItalic.otf</string>
-    <string>ProximaNova-Regular.otf</string>
-    <string>ProximaNova-RegularItalic.otf</string>
-    <string>ProximaNova-Semibold.otf</string>
-    <string>ProximaNova-SemiboldItalic.otf</string>
-    <string>ProximaNovaCond-Light.otf</string>
-    <string>ProximaNovaCond-LightIt.otf</string>
-    <string>ProximaNovaCond-Regular.otf</string>
-    <string>ProximaNovaCond-RegularIt.otf</string>
-    <string>ProximaNovaCond-Semibold.otf</string>
-    <string>ProximaNovaCond-SemiboldIt.otf</string>
+		<string>ProximaNova-Black.otf</string>
+		<string>ProximaNova-Bold.otf</string>
+		<string>ProximaNova-BoldIt.otf</string>
+		<string>ProximaNova-Extrabold.otf</string>
+		<string>ProximaNova-Light.otf</string>
+		<string>ProximaNova-LightItalic.otf</string>
+		<string>ProximaNova-RegItalic.otf</string>
+		<string>ProximaNova-Regular.otf</string>
+		<string>ProximaNova-RegularItalic.otf</string>
+		<string>ProximaNova-Semibold.otf</string>
+		<string>ProximaNova-SemiboldItalic.otf</string>
+		<string>ProximaNovaCond-Light.otf</string>
+		<string>ProximaNovaCond-LightIt.otf</string>
+		<string>ProximaNovaCond-Regular.otf</string>
+		<string>ProximaNovaCond-RegularIt.otf</string>
+		<string>ProximaNovaCond-Semibold.otf</string>
+		<string>ProximaNovaCond-SemiboldIt.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

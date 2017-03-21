@@ -41,7 +41,7 @@ class Auth {
       // play services are available. can now configure library
       GoogleSignin.configure({
         // scopes: [], // what API you want to access on behalf of the user, default is email and profile
-        // iosClientId: '<FROM DEVELOPPER CONSOLE>', // only for iOS
+        iosClientId: '557464199167-o1gsrrdvdvjj7r4l9tspldg35iqi4v0u.apps.googleusercontent.com', // only for iOS
         // client ID of type WEB for your server (needed to verify user ID and offline access)
         // Maxence :
         // webClientId: '582515175129-tjavfgnaejmfddtehv6g435emn3jf576.apps.googleusercontent.com',
