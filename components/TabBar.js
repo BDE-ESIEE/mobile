@@ -21,7 +21,8 @@ class TabBar extends React.Component {
       if (props.goToPage) {
         props.goToPage(i);
         // User tracking
-        Piwik.trackScreen(`/${tabToRoute[i]}`, props.tabs[i]);
+        // TODO FIXME Reenable piwik
+        // Piwik.trackScreen(`/${tabToRoute[i]}`, props.tabs[i]);
       }
     };
 
