@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		007FF091C5554E57A51640FE /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 740466D23AE24002B09401C9 /* SafariServices.framework */; };
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
@@ -81,6 +80,7 @@
 		E31967554EA441EF924CE507 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC6FB143B71445CEA703FF19 /* Ionicons.ttf */; };
 		E347D6018E6C47DA928D49C3 /* libBNFPiwik.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7381AC604D1647DEB58BC369 /* libBNFPiwik.a */; };
 		F48DD7C961B845A5918D4B5A /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA3725547684AEFAAC5650B /* libBVLinearGradient.a */; };
+		E1A4CE30100246B49F7A1E8B /* libRNCalendarEvents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF781FC82C84A9E962DF6B5 /* libRNCalendarEvents.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -556,6 +556,8 @@
 		DC6FB143B71445CEA703FF19 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		E7664839C6369D09A0628402 /* Pods-LagoonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LagoonTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LagoonTests/Pods-LagoonTests.release.xcconfig"; sourceTree = "<group>"; };
 		E849633FBFAF4DA290C98E53 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		A6D44A937C6941E6896BEF40 /* RNCalendarEvents.xcodeproj */ = {isa = PBXFileReference; name = "RNCalendarEvents.xcodeproj"; path = "../node_modules/react-native-calendar-events/RNCalendarEvents.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		4AF781FC82C84A9E962DF6B5 /* libRNCalendarEvents.a */ = {isa = PBXFileReference; name = "libRNCalendarEvents.a"; path = "libRNCalendarEvents.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -598,6 +600,7 @@
 				E347D6018E6C47DA928D49C3 /* libBNFPiwik.a in Frameworks */,
 				D316FBEB12F44702963A8FB8 /* libRNVectorIcons.a in Frameworks */,
 				97047521871FAAE33320816F /* libPods-Lagoon.a in Frameworks */,
+				E1A4CE30100246B49F7A1E8B /* libRNCalendarEvents.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,6 +787,7 @@
 				46C79444A3C440FDB58194E4 /* BVLinearGradient.xcodeproj */,
 				A9DB088362A746CD99AC6A69 /* BNFPiwik.xcodeproj */,
 				D097C284B19A4734ABEBE6CD /* RNVectorIcons.xcodeproj */,
+				A6D44A937C6941E6896BEF40 /* RNCalendarEvents.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -2499,12 +2503,14 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-piwik/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-calendar-events",
 				);
 				INFOPLIST_FILE = LagoonTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -2531,12 +2537,14 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-piwik/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-calendar-events",
 				);
 				INFOPLIST_FILE = LagoonTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -2573,6 +2581,7 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-piwik/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-calendar-events",
 				);
 				INFOPLIST_FILE = Lagoon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2607,6 +2616,7 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-piwik/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-calendar-events",
 				);
 				INFOPLIST_FILE = Lagoon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2638,11 +2648,13 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-piwik/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-calendar-events",
 				);
 				INFOPLIST_FILE = "Lagoon-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -2678,11 +2690,13 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-piwik/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-calendar-events",
 				);
 				INFOPLIST_FILE = "Lagoon-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -2719,6 +2733,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Lagoon-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2743,6 +2758,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
