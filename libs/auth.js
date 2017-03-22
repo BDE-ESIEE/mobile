@@ -29,6 +29,9 @@ class Auth {
       if (user) {
         self.user = user;
       }
+    })
+    .catch((err) => {
+      console.log('Storage error', err.code, err.message);
     });
   }
 
@@ -72,6 +75,7 @@ class Auth {
   signIn (login = true) {
     let self = this;
     if (!this.user && login) {
+      console.warn("coin coin")
       // User does not exist
       GoogleSignin.signIn()
       .then(function (user) {
@@ -85,8 +89,10 @@ class Auth {
       })
       .done();
     } else {
+      console.warn("pouet pouet", this.user == null)
       console.log('storage', JSON.stringify(this.user));
-      if (!this.user.annales_tokens) {
+      if (this.user == null || !this.user.annales_tokens) {
+        console.warn("pof pof")
         this.annalesSignIn();
       } else {
         if (new Date() > new Date(this.user.annales_tokens.expires)) {
@@ -101,6 +107,7 @@ class Auth {
           Piwik.setUserId(self.user.email);
         }
       }
+      console.warn("paf paf")
     }
   }
 
@@ -169,8 +176,7 @@ class Auth {
     })
     .catch((error) => {
       console.error(error);
-    })
-    ;
+    });
   }
 
   /**
