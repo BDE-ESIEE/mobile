@@ -54,20 +54,23 @@ const styles = StyleSheet.create({
     color:"#ffffff",
     fontSize:40,
     fontWeight:"100",
-    fontFamily:"ProximaNova-Bold"
+    fontFamily:"ProximaNova-Bold",
+    backgroundColor:"transparent"
   },
   weekHeaderText: {
     color:"#ffffff",
     fontSize:16,
     fontWeight:"400",
-    fontFamily:"ProximaNova-Regular"
+    fontFamily:"ProximaNova-Regular",
+    backgroundColor:"transparent"
   },
   weekHeaderTextCurWeek: {
     color:"#ffffff",
     fontSize:16,
     fontWeight:"400",
     marginTop:10,
-    fontFamily:"ProximaNova-Regular"
+    fontFamily:"ProximaNova-Regular",
+    backgroundColor:"transparent"
   }
 
 });

@@ -15,6 +15,9 @@ const styles = StyleSheet.create({
     justifyContent:"space-between",
     alignItems:"center",
   },
+  topBarText:{
+    backgroundColor:"transparent"
+  },
   topBarNormalText: {
     color:"#ffffff",
     fontSize:16,
@@ -30,7 +33,8 @@ const styles = StyleSheet.create({
     fontSize:25,
     fontFamily:"ProximaNova-Light",
     marginRight:20,
-    marginLeft:20
+    marginLeft:20,
+    backgroundColor:"transparent"
   },
   loading: {
     flex:1,

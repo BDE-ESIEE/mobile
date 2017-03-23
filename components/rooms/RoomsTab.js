@@ -47,7 +47,7 @@ class RoomsTab extends Component {
                 }]}
               />
             </TouchableOpacity>
-            <Text>
+            <Text style={styles.topBarText}>
               <Text style={styles.topBarNormalText}>Salles libres</Text>
               <Text style={styles.topBarEmphasisText}> {timeName}</Text>
             </Text>
