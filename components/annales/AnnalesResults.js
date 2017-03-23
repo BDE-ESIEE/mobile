@@ -8,7 +8,7 @@ import {
   ActivityIndicator
 } from 'react-native';
 
-import Piwik from 'react-native-piwik';
+//import Piwik from 'react-native-piwik';
 import { Card } from 'react-native-material-design';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -127,7 +127,8 @@ class AnnalesResults extends Component {
   }
 
   openLink (link) {
-    Piwik.trackEvent('annales', 'download', link, 1);
+    // TODO FIXME Reenable piwik
+    //Piwik.trackEvent('annales', 'download', link, 1);
     Linking.openURL(`https://bde.esiee.fr${link}`);
   }
 

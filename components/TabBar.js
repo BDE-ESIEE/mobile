@@ -7,7 +7,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Piwik from 'react-native-piwik';
+//import Piwik from 'react-native-piwik';
 
 import styles from './styles/tabbar.js';
 

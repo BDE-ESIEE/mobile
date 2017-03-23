@@ -1,4 +1,4 @@
-import Piwik from 'react-native-piwik';
+//import Piwik from 'react-native-piwik';
 
 import Auth from '../auth';
 
@@ -51,7 +51,7 @@ class AnnalesApi {
    * @return Promise
    */
   static searchAnnales (query, page = 1) {
-    Piwik.trackEvent('annales', 'search', `${query}?page=${page}`, 1);
+    //Piwik.trackEvent('annales', 'search', `${query}?page=${page}`, 1);
 
     return new Promise((resolve, reject) => {
       AnnalesApi
@@ -73,7 +73,7 @@ class AnnalesApi {
    * @return Promise
    */
   static fetchAnnale (id) {
-    Piwik.trackEvent('annales', 'fetch', String(id), 1);
+    //Piwik.trackEvent('annales', 'fetch', String(id), 1);
 
     return new Promise((resolve, reject) => {
       AnnalesApi

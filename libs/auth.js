@@ -1,6 +1,6 @@
 import { GoogleSignin } from 'react-native-google-signin';
 import moment from 'moment';
-import Piwik from 'react-native-piwik';
+//import Piwik from 'react-native-piwik';
 
 import Storage from './storage';
 
@@ -101,7 +101,7 @@ class Auth {
             callback(self.user, false);
           });
           // User tracking
-          Piwik.setUserId(self.user.email);
+          //Piwik.setUserId(self.user.email);
         }
       }
     }
@@ -125,7 +125,7 @@ class Auth {
         callback(null, error);
       });
       // Stop user tracking
-      Piwik.setUserId(null);
+      //Piwik.setUserId(null);
     })
     .catch((err) => {
       console.log(err);
@@ -168,7 +168,7 @@ class Auth {
         callback(self.user, false);
       });
       // User tracking
-      Piwik.setUserId(self.user.email);
+      //Piwik.setUserId(self.user.email);
     })
     .catch((error) => {
       console.error(error);

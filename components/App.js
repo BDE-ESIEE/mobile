@@ -3,7 +3,7 @@
 import React from 'react';
 import {UIManager} from 'react-native';
 import {Actions, Scene, Router} from 'react-native-router-flux';
-import Piwik from 'react-native-piwik';
+//import Piwik from 'react-native-piwik';
 
 import BottomNavigation from './BottomNavigation';
 import NewsCard from './news/NewsCard';
@@ -35,7 +35,7 @@ class App extends React.Component {
   componentDidMount () {
     UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
     Auth.configure();
-    Piwik.initTracker('https://bde.esiee.fr/statistiques/piwik.php', 5);
+    //Piwik.initTracker('https://bde.esiee.fr/statistiques/piwik.php', 5);
     // TODO FIXME Reenable piwik
     //Piwik.trackScreen(`/events`, 'Événements');
     // Storage.clear();
