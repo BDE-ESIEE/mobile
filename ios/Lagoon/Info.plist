@@ -37,6 +37,10 @@
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
 			<string>com.Lagoon</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.Lagoon</string>
+			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
