@@ -29,6 +29,9 @@ class Auth {
       if (user) {
         self.user = user;
       }
+    })
+    .catch((err) => {
+      console.log('Storage error', err.code, err.message);
     });
   }
 
@@ -86,7 +89,7 @@ class Auth {
       .done();
     } else {
       console.log('storage', JSON.stringify(this.user));
-      if (!this.user.annales_tokens) {
+      if (this.user == null || !this.user.annales_tokens) {
         this.annalesSignIn();
       } else {
         if (new Date() > new Date(this.user.annales_tokens.expires)) {
@@ -169,8 +172,7 @@ class Auth {
     })
     .catch((error) => {
       console.error(error);
-    })
-    ;
+    });
   }
 
   /**

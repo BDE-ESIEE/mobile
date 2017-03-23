@@ -12,6 +12,7 @@ class BottomNavigation extends React.Component {
     return (
       <ScrollableTabView
         tabBarPosition='bottom'
+        locked={true}
         renderTabBar={() => <TabBar />}
       >
         {
