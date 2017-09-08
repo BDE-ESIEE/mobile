@@ -118,7 +118,7 @@ class AnnalesResults extends Component {
             />
             <Text style={styles.suggestionText}>
               <Text style={styles.suggestionNormalText}>Essayer en cherchant</Text>
-              <Text style={styles.suggestionEmphasisText}> {suggestion}</Text>
+              <Text style={styles.suggestionNormalText}> {suggestion}</Text>
             </Text>
           </TouchableOpacity>
         </View>
