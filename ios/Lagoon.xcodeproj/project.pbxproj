@@ -127,6 +127,48 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = Lagoon;
 		};
+		0A3A7EE71F629832000F3E33 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87B7C13F1E8184C700DA9846 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9B66CB4DECA61D5EFF7BA36CA8E658E0;
+			remoteInfo = GoogleToolboxForMac;
+		};
+		0A3A7EE91F629832000F3E33 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87B7C13F1E8184C700DA9846 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 203A167303ECF83FB26BC4D55214B942;
+			remoteInfo = GTMOAuth2;
+		};
+		0A3A7EEB1F629832000F3E33 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87B7C13F1E8184C700DA9846 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D3742796BABD896E2EC1635EB50141C;
+			remoteInfo = GTMSessionFetcher;
+		};
+		0A3A7EF21F629832000F3E33 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87B7C0B91E81848500DA9846 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9B66CB4DECA61D5EFF7BA36CA8E658E0;
+			remoteInfo = GoogleToolboxForMac;
+		};
+		0A3A7EF41F629832000F3E33 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87B7C0B91E81848500DA9846 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 203A167303ECF83FB26BC4D55214B942;
+			remoteInfo = GTMOAuth2;
+		};
+		0A3A7EF61F629832000F3E33 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87B7C0B91E81848500DA9846 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D3742796BABD896E2EC1635EB50141C;
+			remoteInfo = GTMSessionFetcher;
+		};
 		0AF3EA561F628F5200B3E512 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 46C79444A3C440FDB58194E4 /* BVLinearGradient.xcodeproj */;
@@ -1278,6 +1320,9 @@
 		87B7C0BA1E81848500DA9846 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				0A3A7EF31F629832000F3E33 /* libGoogleToolboxForMac.a */,
+				0A3A7EF51F629832000F3E33 /* libGTMOAuth2.a */,
+				0A3A7EF71F629832000F3E33 /* libGTMSessionFetcher.a */,
 				87B7C0D01E81848500DA9846 /* libPods-Lagoon.a */,
 				87B7C0D21E81848500DA9846 /* libPods-LagoonTests.a */,
 			);
@@ -1731,6 +1776,9 @@
 		87B7C1401E8184C700DA9846 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				0A3A7EE81F629832000F3E33 /* libGoogleToolboxForMac.a */,
+				0A3A7EEA1F629832000F3E33 /* libGTMOAuth2.a */,
+				0A3A7EEC1F629832000F3E33 /* libGTMSessionFetcher.a */,
 				87B7C1561E8184C700DA9846 /* libPods-Lagoon.a */,
 				87B7C1581E8184C700DA9846 /* libPods-LagoonTests.a */,
 			);
@@ -1922,7 +1970,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 610;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -2072,6 +2120,48 @@
 			fileType = archive.ar;
 			path = libRCTVibration.a;
 			remoteRef = 00C302E31ABCB9EE00DB3ED1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A3A7EE81F629832000F3E33 /* libGoogleToolboxForMac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGoogleToolboxForMac.a;
+			remoteRef = 0A3A7EE71F629832000F3E33 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A3A7EEA1F629832000F3E33 /* libGTMOAuth2.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGTMOAuth2.a;
+			remoteRef = 0A3A7EE91F629832000F3E33 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A3A7EEC1F629832000F3E33 /* libGTMSessionFetcher.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGTMSessionFetcher.a;
+			remoteRef = 0A3A7EEB1F629832000F3E33 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A3A7EF31F629832000F3E33 /* libGoogleToolboxForMac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGoogleToolboxForMac.a;
+			remoteRef = 0A3A7EF21F629832000F3E33 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A3A7EF51F629832000F3E33 /* libGTMOAuth2.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGTMOAuth2.a;
+			remoteRef = 0A3A7EF41F629832000F3E33 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0A3A7EF71F629832000F3E33 /* libGTMSessionFetcher.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGTMSessionFetcher.a;
+			remoteRef = 0A3A7EF61F629832000F3E33 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		0AF3EA571F628F5200B3E512 /* libBVLinearGradient.a */ = {
@@ -2422,6 +2512,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Lagoon/Pods-Lagoon-resources.sh",
 				"${PODS_ROOT}/GTMOAuth2/Source/Touch/GTMOAuth2ViewTouch.xib",
+				"${PODS_ROOT}/GoogleAuthUtilities/Frameworks/frameworks/GoogleAuthUtilities.framework/Resources/GTMOAuth2ViewTouch.xib",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -2575,6 +2666,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lagoon.app/Lagoon";
 			};
@@ -2609,6 +2701,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lagoon.app/Lagoon";
 			};
@@ -2646,6 +2739,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Lagoon;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -2682,6 +2776,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Lagoon;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -2842,15 +2937,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -2883,8 +2982,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2892,6 +2993,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

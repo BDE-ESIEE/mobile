@@ -6,7 +6,12 @@ target 'Lagoon' do
   # use_frameworks!
 
   # Pods for Lagoon
+  pod 'GoogleAppUtilities'
+  pod 'GoogleAuthUtilities'
+  pod 'GoogleNetworkingUtilities'
   pod 'Google/SignIn'
+  pod 'GoogleSymbolUtilities'
+  pod 'GoogleUtilities'
   target 'LagoonTests' do
     inherit! :search_paths
     # Pods for testing
