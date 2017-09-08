@@ -16,7 +16,7 @@ const loadingMessages = [
   "Nos capteurs biométriques testent les salles...",
   "Le chien du BDE prend note des salles libres...",
   "Reticulating Splines...",
-  "Nous testons votre  patience...",
+  "Nous testons votre patience...",
   "Connexion au satellite de mesure de présence...",
   "Émission du signal hertzien à fréquence dynamique d'évaluation présentielle géofencée...",
   "Ca va toujours plus vite que si t'allais voir toi-même."

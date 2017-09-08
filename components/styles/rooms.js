@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     width: 70,
     textAlign:"center",
     fontSize:30,
-    marginTop:-4,
+    marginTop:4,
     marginBottom:-4,
     fontFamily:"ProximaNova-Regular"
   },
