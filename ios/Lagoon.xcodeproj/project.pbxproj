@@ -745,6 +745,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0A111BEF201B2150007C2E02 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				BCA3725547684AEFAAC5650B /* libBVLinearGradient.a */,
+				7381AC604D1647DEB58BC369 /* libBNFPiwik.a */,
+				695B7A53402E4B57BB84BD70 /* libRNVectorIcons.a */,
+				23513631A7E444EB956D74EB /* libRNCalendarEvents.a */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		0AF3EA511F628F5200B3E512 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -894,6 +905,7 @@
 				766BE261E3F2488C81970CDE /* Frameworks */,
 				D0811C0ADCFA49F7B949B73B /* Resources */,
 				B9A160B4777229F6FDD2E9FA /* Pods */,
+				0A111BEF201B2150007C2E02 /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -2517,7 +2529,8 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GTMOAuth2ViewTouch.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2739,7 +2752,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Macao;
 				PRODUCT_NAME = Lagoon;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -2776,7 +2789,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Macao;
 				PRODUCT_NAME = Lagoon;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

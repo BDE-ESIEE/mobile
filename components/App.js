@@ -10,6 +10,7 @@ import NewsCard from './news/NewsCard';
 import EventsList from './events/EventsList';
 import Annales from './annales/Annales';
 import RoomsTab from './rooms/RoomsTab';
+import AgendaTab from './agenda/AgendaTab';
 import LoginPage from './LoginPage';
 import Auth from '../libs/auth';
 
@@ -17,9 +18,10 @@ const scenes = Actions.create(
   <Scene key='root'>
     <Scene key='home' component={BottomNavigation} initial tabs hideNavBar unmountScenes>
       <Scene key='events' component={EventsList} title='Événements' hideNavBar />
+      <Scene key='agenda' component={AgendaTab} title='Agenda' hideNavBar />
       <Scene key='annales' component={Annales} title='Annales' hideNavBar />
       <Scene key='rooms' component={RoomsTab} title='Salles libres' hideNavBar />
-      <Scene key='account' component={LoginPage} title='Mon compte' hideNavBar />
+      <Scene key='account' component={LoginPage} title='Compte' hideNavBar />
     </Scene>
     <Scene key='news' component={NewsCard} title='News' hideNavBar={false} />
   </Scene>

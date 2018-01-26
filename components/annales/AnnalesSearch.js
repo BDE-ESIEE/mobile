@@ -35,7 +35,7 @@ class AnnalesSearch extends Component {
             }]}>
           <LinearGradient
             start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
-            colors={['#FE734C', '#FF4D59']}
+            colors={['#1D976C', '#1D976C']}
             style={styles.searchBg}>
             <View style={styles.inputContainer}>
               <Icon

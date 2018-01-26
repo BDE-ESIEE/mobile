@@ -18,10 +18,10 @@ moment.locale('fr');
 
 class RoomsTab extends Component {
   constructor(props) {
-      super(props);
-      this.state = {
-        timeDiff:0
-      };
+    super(props);
+    this.state = {
+      timeDiff:0
+    };
   }
   render() {
     let timeName = "maintenant";
@@ -29,13 +29,12 @@ class RoomsTab extends Component {
       timeName = moment().add(this.state.timeDiff, 'hours').calendar(null,{sameElse:'[le] DD/MM à HH:MM'}).toLowerCase();
     }
     return (
-
       <View style={styles.container}>
         <StatusBar translucent={true} backgroundColor="rgba(0,0,0,0.2)" barStyle="light-content"/>
         <View>
           <LinearGradient
             start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
-            colors={['#FE734C', '#FF4D59']}
+            colors={['#1D976C', '#1D976C']}
             style={styles.topBar}>
             <TouchableOpacity
               onPress={()=>this.decrTime()}

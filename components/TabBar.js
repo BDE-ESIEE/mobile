@@ -13,9 +13,9 @@ import styles from './styles/tabbar.js';
 
 class TabBar extends React.Component {
   render () {
-    const tabToIconName = ['ios-calendar', 'ios-bookmarks', 'ios-pin', 'ios-person'];
+    const tabToIconName = ['ios-calendar', 'ios-school', 'ios-bookmarks', 'ios-pin', 'ios-person'];
     // Duplication of App.js... because we don't want to use Flux/Redux
-    const tabToRoute = ['events', 'annales', 'rooms', 'account'];
+    const tabToRoute = ['events', 'agenda', 'annales', 'rooms', 'account'];
 
     let goToPage = (props, i) => {
       if (props.goToPage) {
@@ -30,7 +30,7 @@ class TabBar extends React.Component {
       <View style={styles.tabs}>
         {this.props.tabs.map((tab, i) => {
           let active = this.props.activeTab === i;
-          let color = active ? '#FE734C' : '#4a4a4a';
+          let color = active ? '#1D976C' : '#4a4a4a';
           return (
             <TouchableOpacity key={tab} onPress={() => { goToPage(this.props, i); }} style={styles.tab}>
               <Icon

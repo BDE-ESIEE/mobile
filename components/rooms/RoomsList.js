@@ -3,7 +3,8 @@ import {
   ActivityIndicator,
   Text,
   View,
-  ListView
+  ListView,
+  RefreshControl
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import moment from 'moment';
@@ -24,14 +25,15 @@ const loadingMessages = [
 
 class RoomsList extends Component {
   constructor(props) {
-      super(props);
-      this.state = {
-          rooms: new ListView.DataSource({
-              rowHasChanged: (row1, row2) => row1 !== row2,
-              sectionHeaderHasChanged: (s1, s2) => s1 !== s2
-          }),
-          loading:true
-      };
+    super(props);
+    this.state = {
+      rooms: new ListView.DataSource({
+          rowHasChanged: (row1, row2) => row1 !== row2,
+          sectionHeaderHasChanged: (s1, s2) => s1 !== s2
+      }),
+      loading:true,
+      refreshing: false
+    };
   }
   componentDidMount() {
     this.getRooms(this.props.time);
@@ -44,6 +46,10 @@ class RoomsList extends Component {
       this.getRooms(this.props.time);
     }
   }
+  _onRefresh() {
+    this.setState({refreshing: true});
+    this.getRooms(this.props.time);
+  }
   render() {
     let loadingElement;
     let listElement;
@@ -51,7 +57,7 @@ class RoomsList extends Component {
       let loadingText = loadingMessages[Math.floor(Math.random() * loadingMessages.length)];
       loadingElement = (
         <View style={styles.loading}>
-          <ActivityIndicator color="#FF4D59" size="large" style={styles.loadingIndicator}/>
+          <ActivityIndicator color="#1D976C" size="large" style={styles.loadingIndicator}/>
           <Text style={styles.loadingText}>
             {loadingText}
           </Text>
@@ -62,6 +68,13 @@ class RoomsList extends Component {
         <ListView
           dataSource={this.state.rooms}
           renderRow={(epi,sectionID,rowID) => <RoomsListItem epi={epi}></RoomsListItem>}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this._onRefresh.bind(this)}
+              tintColor={'#1D976C'}
+            />
+          }
           />
       )
     }
@@ -99,7 +112,8 @@ class RoomsList extends Component {
         roomsByEpi.push(roomsByEpi.shift())
         this.setState({
           rooms:this.state.rooms.cloneWithRows(roomsByEpi),
-          loading:false
+          loading:false,
+          refreshing: false
         });
       });
     });
