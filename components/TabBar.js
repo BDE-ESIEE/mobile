@@ -13,9 +13,9 @@ import styles from './styles/tabbar.js';
 
 class TabBar extends React.Component {
   render () {
-    const tabToIconName = ['ios-calendar', 'ios-school', 'ios-bookmarks', 'ios-pin', 'ios-person'];
+    const tabToIconName = ['ios-home', 'ios-calendar', 'ios-bookmarks', 'ios-pin', 'ios-person'];
     // Duplication of App.js... because we don't want to use Flux/Redux
-    const tabToRoute = ['events', 'agenda', 'annales', 'rooms', 'account'];
+    const tabToRoute = ['news', 'agenda', 'annales', 'rooms', 'account'];
 
     let goToPage = (props, i) => {
       if (props.goToPage) {

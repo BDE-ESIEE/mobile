@@ -6,7 +6,7 @@ import {Actions, Scene, Router} from 'react-native-router-flux';
 //import Piwik from 'react-native-piwik';
 
 import BottomNavigation from './BottomNavigation';
-import NewsCard from './news/NewsCard';
+import NewsList from './news/NewsList';
 import EventsList from './events/EventsList';
 import Annales from './annales/Annales';
 import RoomsTab from './rooms/RoomsTab';
@@ -17,13 +17,12 @@ import Auth from '../libs/auth';
 const scenes = Actions.create(
   <Scene key='root'>
     <Scene key='home' component={BottomNavigation} initial tabs hideNavBar unmountScenes>
-      <Scene key='events' component={EventsList} title='Événements' hideNavBar />
+      <Scene key='news' component={NewsList} title='News' hideNavBar />
       <Scene key='agenda' component={AgendaTab} title='Agenda' hideNavBar />
       <Scene key='annales' component={Annales} title='Annales' hideNavBar />
       <Scene key='rooms' component={RoomsTab} title='Salles libres' hideNavBar />
       <Scene key='account' component={LoginPage} title='Compte' hideNavBar />
     </Scene>
-    <Scene key='news' component={NewsCard} title='News' hideNavBar={false} />
   </Scene>
 );
 
