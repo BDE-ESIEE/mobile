@@ -13,3 +13,9 @@
  1. `npm run start` pour build le package react-native
  2. `react-native run-android` pour build l'appli sous Android et la lancer dans un émulateur (requiert le SDK Android)
  2. `react-native run-ios` pour build l'appli sous iOS et la lancer dans un émulateur (requiert xcode)
+
+### Générer les icônes pour Android et iOS
+
+ 1. `yo rn-toolbox:assets --icon <path to your icon>` en spécifiant le chemin d'accès vers l'icône
+ 2. Répondre `Lagoon` à la question `Name of your project`
+ 3. Répondre `Y` à la question `Overwrite ios/Lagoon/Images.xcassets/AppIcon.appiconset/Contents.json?`
