@@ -143,8 +143,8 @@ class AgendaCalendar extends Component {
     for (var i = 0; i < json.length; i++) {
       var start = new Date(json[i].start);
       var end = new Date(json[i].end);
-      start.setHours(start.getHours() - 7);
-      end.setHours(end.getHours() - 7);
+      start.setHours(start.getHours());
+      end.setHours(end.getHours());
       var day = start.getFullYear() + "-" + ("0" + (start.getMonth()+1)).slice(-2) + "-" + ('0' + start.getDate()).slice(-2);
       if(!newItems[day]) newItems[day] = [];
       var name = start.getHours() + ":" + ('0' + start.getMinutes()).slice(-2) + " - " + end.getHours() + ":" + ('0' + end.getMinutes()).slice(-2) + "\n\n" + json[i].name + "\n" + json[i].unite + "\n\n" + json[i].rooms + "\n\n" + json[i].prof;
