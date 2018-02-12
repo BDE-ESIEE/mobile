@@ -5,15 +5,20 @@ import {
   ListView,
   ActivityIndicator,
   StatusBar,
-  RefreshControl
+  RefreshControl,
+  Button,
+  TouchableOpacity
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import moment from 'moment';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import styles from '../styles/events.js';
 import EventCard from './EventCard';
 
 import { ifIphoneX } from 'react-native-iphone-x-helper'
+import { Actions } from "react-native-router-flux";
+
 
 class EventsList extends Component {
   constructor (props) {
@@ -71,6 +76,31 @@ class EventsList extends Component {
           colors={['#1D976C', '#1D976C']}
           style={{...ifIphoneX({height: 45}, {height: 25})}}
         />
+        <StatusBar translucent={true} backgroundColor="rgba(0,0,0,0.2)" barStyle="light-content"/>
+          <View>
+            <LinearGradient
+              start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
+              colors={['#1D976C', '#1D976C']}
+              style={styles.topBar}>
+              <TouchableOpacity onPress={() => Actions.pop()}>
+                <Icon
+                  name='ios-arrow-dropleft-outline'
+                  style={styles.topBarButton}
+                />
+              </TouchableOpacity>
+              <Text style={styles.topBarText}>
+                <Text style={styles.topBarNormalText}>Évènements</Text>
+              </Text>
+              <TouchableOpacity activeOpacity={1}>
+                <Icon
+                  name='ios-arrow-dropright-outline'
+                  style={[styles.topBarButton, {
+                    opacity: 0.3
+                  }]}
+                />
+              </TouchableOpacity>
+            </LinearGradient>
+          </View>
         {loadingElement}
         {listElement}
       </View>

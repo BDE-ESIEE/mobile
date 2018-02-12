@@ -23,6 +23,7 @@ const scenes = Actions.create(
       <Scene key='rooms' component={RoomsTab} title='Salles libres' hideNavBar />
       <Scene key='account' component={LoginPage} title='Compte' hideNavBar />
     </Scene>
+    <Scene key='events' component={EventsList} title='Events' hideNavBar />
   </Scene>
 );
 

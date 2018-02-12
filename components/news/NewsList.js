@@ -6,15 +6,19 @@ import {
   ActivityIndicator,
   StatusBar,
   TouchableOpacity,
-  RefreshControl
+  RefreshControl,
+  Button
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import moment from 'moment';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import styles from '../styles/news.js';
 import NewsCard from './NewsCard';
 
 import { ifIphoneX } from 'react-native-iphone-x-helper'
+
+import { Actions } from "react-native-router-flux";
 
 const loadingMessages = [
   "Le chien du BDE livre les journaux...",
@@ -131,11 +135,23 @@ class NewsList extends Component {
               start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
               colors={['#1D976C', '#1D976C']}
               style={styles.topBar}>
-              <TouchableOpacity></TouchableOpacity>
+              <TouchableOpacity activeOpacity={1}>
+                <Icon
+                  name='ios-arrow-dropleft-outline'
+                  style={[styles.topBarButton, {
+                    opacity: 0.3
+                  }]}
+                />
+              </TouchableOpacity>
               <Text style={styles.topBarText}>
                 <Text style={styles.topBarNormalText}>News</Text>
               </Text>
-              <TouchableOpacity></TouchableOpacity>
+              <TouchableOpacity onPress={() => Actions.events()}>
+                <Icon
+                  name='ios-arrow-dropright-outline'
+                  style={styles.topBarButton}
+                />
+              </TouchableOpacity>
             </LinearGradient>
           </View>
         {loadingElement}

@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent:"flex-start",
     borderBottomColor:"gray",
-    borderBottomWidth:0
+    borderBottomWidth:0,
+    marginRight:10,
   },
   newsCardDateSmall: {
     width: 70,
@@ -82,6 +83,11 @@ const styles = StyleSheet.create({
     textAlign:"center",
     lineHeight:30
   },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+    padding: 10
+  }
 });
 
 module.exports = styles;

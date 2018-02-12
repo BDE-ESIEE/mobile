@@ -116,6 +116,12 @@ class RoomsList extends Component {
           refreshing: false
         });
       });
+    })
+    .catch(function(error) {
+        this.setState({
+          refreshing: true,
+          loading: true
+        });
     });
   }
   getRoomCategory(room) {

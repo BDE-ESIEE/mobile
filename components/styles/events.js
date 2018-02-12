@@ -71,6 +71,33 @@ const styles = StyleSheet.create({
     marginTop:10,
     fontFamily:"ProximaNova-Regular",
     backgroundColor:"transparent"
+  },
+  topBar: {
+    height:55,
+    flexDirection: "row",
+    justifyContent:"space-between",
+    alignItems:"center",
+  },
+  topBarText:{
+    backgroundColor:"transparent"
+  },
+  topBarNormalText: {
+    color:"#ffffff",
+    fontSize:16,
+    fontFamily:"ProximaNova-Bold"
+  },
+  topBarEmphasisText: {
+    color:"#ffffff",
+    fontSize:16,
+    fontFamily:"ProximaNova-BoldIt"
+  },
+  topBarButton: {
+    color:"#ffffff",
+    fontSize:25,
+    fontFamily:"ProximaNova-Light",
+    marginRight:20,
+    marginLeft:20,
+    backgroundColor:"transparent"
   }
 
 });
