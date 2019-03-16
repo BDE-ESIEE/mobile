@@ -104,7 +104,7 @@ class NewsList extends Component {
       let loadingText = loadingMessages[Math.floor(Math.random() * loadingMessages.length)];
       loadingElement = (
         <View style={styles.loading}>
-          <ActivityIndicator color="#1D976C" size="large" style={styles.loadingIndicator}/>
+          <ActivityIndicator color="#f4373b" size="large" style={styles.loadingIndicator}/>
           <Text style={styles.loadingText}>
             {loadingText}
           </Text>
@@ -119,7 +119,7 @@ class NewsList extends Component {
             <RefreshControl
               refreshing={this.state.refreshing}
               onRefresh={this._onRefresh.bind(this)}
-              tintColor={'#1D976C'}
+              tintColor={'#f4373b'}
             />
           }
           onEndReached={() => this._fetchMore(this.state.page)}
@@ -133,7 +133,7 @@ class NewsList extends Component {
           <View>
             <LinearGradient
               start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
-              colors={['#1D976C', '#1D976C']}
+              colors={['#f4373b', '#f4373b']}
               style={styles.topBar}>
               <TouchableOpacity activeOpacity={1}>
                 <Icon

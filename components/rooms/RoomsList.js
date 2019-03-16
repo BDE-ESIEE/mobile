@@ -57,7 +57,7 @@ class RoomsList extends Component {
       let loadingText = loadingMessages[Math.floor(Math.random() * loadingMessages.length)];
       loadingElement = (
         <View style={styles.loading}>
-          <ActivityIndicator color="#1D976C" size="large" style={styles.loadingIndicator}/>
+          <ActivityIndicator color="#f4373b" size="large" style={styles.loadingIndicator}/>
           <Text style={styles.loadingText}>
             {loadingText}
           </Text>
@@ -72,7 +72,7 @@ class RoomsList extends Component {
             <RefreshControl
               refreshing={this.state.refreshing}
               onRefresh={this._onRefresh.bind(this)}
-              tintColor={'#1D976C'}
+              tintColor={'#f4373b'}
             />
           }
           />

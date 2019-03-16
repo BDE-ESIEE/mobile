@@ -48,7 +48,7 @@ class EventsList extends Component {
     if (this.state.loading) {
       loadingElement = (
         <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center'}}>
-          <ActivityIndicator color='#1D976C' size='large' />
+          <ActivityIndicator color='#f4373b' size='large' />
         </View>
       );
     } else {
@@ -61,7 +61,7 @@ class EventsList extends Component {
             <RefreshControl
               refreshing={this.state.refreshing}
               onRefresh={this._onRefresh.bind(this)}
-              tintColor={'#1D976C'}
+              tintColor={'#f4373b'}
             />
           }
         />
@@ -73,14 +73,14 @@ class EventsList extends Component {
         <StatusBar translucent backgroundColor='rgba(0,0,0,0.2)' barStyle='light-content' />
         <LinearGradient
           start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
-          colors={['#1D976C', '#1D976C']}
+          colors={['#f4373b', '#f4373b']}
           style={{...ifIphoneX({height: 45}, {height: 25})}}
         />
         <StatusBar translucent={true} backgroundColor="rgba(0,0,0,0.2)" barStyle="light-content"/>
           <View>
             <LinearGradient
               start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
-              colors={['#1D976C', '#1D976C']}
+              colors={['#f4373b', '#f4373b']}
               style={styles.topBar}>
               <TouchableOpacity onPress={() => Actions.pop()}>
                 <Icon
@@ -113,7 +113,7 @@ class EventsList extends Component {
         <View>
           <LinearGradient
             start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
-            colors={['#1D976C', '#1D976C']}
+            colors={['#f4373b', '#f4373b']}
             style={styles.weekHeader}>
             <Text style={styles.weekHeaderBigNumber}>{sectionData.length}</Text>
             <Text style={styles.weekHeaderTextCurWeek}>Évènement{sectionData.length > 1 ? 's' : ''} cette semaine !</Text>
@@ -126,7 +126,7 @@ class EventsList extends Component {
         <View>
           <LinearGradient
             start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
-            colors={['#1D976C', '#53BD8C']}
+            colors={['#f4373b', '#ff686b']}
             style={styles.weekHeaderSmall}>
             <Text style={styles.weekHeaderText}>{weekText}</Text>
           </LinearGradient>

@@ -30,7 +30,7 @@ class TabBar extends React.Component {
       <View style={styles.tabs}>
         {this.props.tabs.map((tab, i) => {
           let active = this.props.activeTab === i;
-          let color = active ? '#1D976C' : '#4a4a4a';
+          let color = active ? '#f4373b' : '#4a4a4a';
           return (
             <TouchableOpacity key={tab} onPress={() => { goToPage(this.props, i); }} style={styles.tab}>
               <Icon

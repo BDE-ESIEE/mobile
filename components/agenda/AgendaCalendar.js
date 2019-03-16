@@ -62,7 +62,7 @@ class AgendaCalendar extends Component {
     if(this.state.loading) {
       loadingElement = (
         <View style={styles.loading}>
-          <ActivityIndicator color="#1D976C" size="large" style={styles.loadingIndicator}/>
+          <ActivityIndicator color="#f4373b" size="large" style={styles.loadingIndicator}/>
           <Text style={styles.loadingText}>
             {this.state.loadingText}
           </Text>
@@ -77,7 +77,7 @@ class AgendaCalendar extends Component {
           renderEmptyDate={this.renderEmptyDate.bind(this)}
           rowHasChanged={this.rowHasChanged.bind(this)}
           firstDay={1}
-          theme={{calendarBackground: 'white', agendaKnobColor: '#1D976C', agendaDayTextColor: '#1D976C', agendaDayNumColor: '#1D976C'}}
+          theme={{calendarBackground: 'white', agendaKnobColor: '#f4373b', agendaDayTextColor: '#f4373b', agendaDayNumColor: '#f4373b'}}
         />
       )
     }
@@ -88,7 +88,7 @@ class AgendaCalendar extends Component {
           <View>
             <LinearGradient
               start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}
-              colors={['#1D976C', '#1D976C']}
+              colors={['#f4373b', '#f4373b']}
               style={styles.topBar}>
               <TouchableOpacity></TouchableOpacity>
               <Text style={styles.topBarText}>

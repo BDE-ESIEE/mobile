@@ -41,7 +41,7 @@ class AnnalesResults extends Component {
     if(!annale.details && annale.loading) {
       cardLinks = (
         <View>
-          <ActivityIndicator color="#1D976C" size="small"/>
+          <ActivityIndicator color="#f4373b" size="small"/>
         </View>
       )
     }
